@@ -1,3 +1,5 @@
+# Try it here - "https://money-talks-mefn.vercel.app/"
+
 # AI Security Analyst
 
 **Completes a vendor security questionnaire by reading the vendor's own documents — and refuses to answer anything it cannot quote.**
