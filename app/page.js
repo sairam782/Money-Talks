@@ -161,7 +161,13 @@ export default function Home() {
       {/* work area */}
       <div className="flex min-h-0 flex-1">
         <section className="flex w-[38%] min-w-[330px] flex-col border-r border-[var(--line)] bg-[var(--panel)]">
-          <ChatPanel messages={messages} onSend={send} pending={pending} target={target} />
+          <ChatPanel
+            messages={messages}
+            onSend={send}
+            pending={pending}
+            target={target}
+            onClearTarget={() => setTargetId(null)}
+          />
         </section>
         <section className="flex min-w-0 flex-1 flex-col bg-[var(--bg)]">
           <div className="flex shrink-0 items-center gap-1 border-b border-[var(--line)] bg-[var(--panel)] px-3">

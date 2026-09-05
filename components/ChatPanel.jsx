@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import EvidenceChip from './EvidenceChip';
 
-export default function ChatPanel({ messages, onSend, pending, target }) {
+export default function ChatPanel({ messages, onSend, pending, target, onClearTarget }) {
   const [text, setText] = useState('');
   const endRef = useRef(null);
   // Block body on purpose: a concise arrow returns the call's value, and React
@@ -68,11 +68,22 @@ export default function ChatPanel({ messages, onSend, pending, target }) {
       </div>
 
       {target && (
-        <div className="border-t border-[var(--line)] bg-[#fffbeb] px-4 py-2">
-          <span className="mono text-[10px] tracking-wider text-[var(--amber)]">
-            ON_QUESTION {target.num}
-          </span>
-          <p className="mt-0.5 text-[11px] leading-snug text-[var(--muted)]">{target.questionText}</p>
+        <div className="flex items-start gap-2 border-t border-[var(--line)] bg-[#fffbeb] px-4 py-2">
+          <div className="min-w-0 flex-1">
+            <span className="mono text-[10px] tracking-wider text-[var(--amber)]">
+              ON_QUESTION {target.num}
+            </span>
+            <p className="mt-0.5 text-[11px] leading-snug text-[var(--muted)]">{target.questionText}</p>
+          </div>
+          <button
+            type="button"
+            onClick={onClearTarget}
+            title="Stop answering this question"
+            aria-label="Stop answering this question"
+            className="mono -mr-1 shrink-0 px-1.5 py-0.5 text-[13px] leading-none text-[var(--dim)] hover:text-[var(--ink)]"
+          >
+            ×
+          </button>
         </div>
       )}
 
