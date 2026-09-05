@@ -88,7 +88,18 @@ export default function Home() {
       const data = await res.json();
       if (data.profile) setProfile(data.profile);
       setTargetId(data.nextQuestionId ?? null);
-      setMessages((m) => [...m, { role: 'assistant', text: data.reply ?? 'Recorded.' }]);
+      setMessages((m) => [
+        ...m,
+        {
+          role: 'assistant',
+          text: data.reply ?? 'Recorded.',
+          // A free-form answer shows its sources in the transcript. An answer
+          // about their security posture with no citation under it looks
+          // exactly like one that was made up — so it never appears bare.
+          evidence: data.intent === 'ask' ? data.evidence ?? [] : [],
+          status: data.intent === 'ask' ? data.status : null,
+        },
+      ]);
     } catch (err) {
       setMessages((m) => [...m, { role: 'assistant', text: `Something went wrong: ${err.message}` }]);
     } finally {

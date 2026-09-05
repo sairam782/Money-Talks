@@ -80,22 +80,36 @@ security control. And "yes" is never a complete answer: it drills **how often �
 last tested → who owns it**, one closed question at a time, and never re-asks what it has
 already been told.
 
-**5. It never forgets, and never overwrites.**
+**5. It answers questions that are not in the questionnaire.**
+The 66 questions are the deliverable, not the limit of what the corpus can be asked. Ask
+*"who currently has admin access, and has any of it been flagged for revocation?"* — a
+question the workbook never asks — and it retrieves against your words, answers from the
+documents, and cites the access review record line by line. The discipline does not relax
+because the question is free-form: quotes are validated by the same
+`keepOnlyRealEvidence`, and it will not answer from general knowledge about what a company
+like this usually does. A question is never recorded as your answer to the open question,
+and the interview stays where it was ([lib/ask.js](lib/ask.js)).
+
+Crucially, *"your documents don't cover this"* and *"I couldn't check"* are kept as
+separate outcomes. They read identically to a human and mean opposite things, so a rate
+limit or an unreachable model never gets reported as an absence of evidence.
+
+**6. It never forgets, and never overwrites.**
 The profile is append-only. A correction pushes the previous state onto `history` with its
 provenance, so the old value and who changed it survive
 ([`recordUserAnswer`](lib/profile.js)). It never asks the same question twice.
 
-**6. The deliverable is a document.**
+**7. The deliverable is a document.**
 `/questionnaire` renders the completed questionnaire — grouped by topic, every state
 labelled, every citation quoted with its source and evidence type, every unresolved
 conflict shown with both sides and the outstanding question. Print to PDF or download.
 
-**7. Every model call is traced to PRISM.**
+**8. Every model call is traced to PRISM.**
 Sessions, latency, and per-answer metadata (status, evidence type, citation count, rejected
 quote count, confidence). Tracing is fired inside `after()` and every failure path swallows
 — it can never break the request.
 
-**8. It reports defects in the client's own questionnaire.**
+**9. It reports defects in the client's own questionnaire.**
 Q52 is blank in the workbook Regodit shipped. Rather than silently dropping it, it's kept
 and surfaced as an honest gap — a hidden question is a question we failed to answer.
 
@@ -187,6 +201,7 @@ lib/
   corpus.js         documents in memory · quote validation · evidence typing
   retrieve.js       keyword retrieval over paragraphs, security synonyms
   assess.js         the 4-way router — the product
+  ask.js            free-form questions beyond the 66, same citation rule
   converse.js       the interview turn: intent classification + follow-up drilling
   questionnaire.js  the 66 questions, batched by topic
   profile.js        append-only state, coverage, next open question
@@ -221,6 +236,7 @@ cp .env.example .env.local
 | `GROQ_API_KEY` | Required. Free key from [console.groq.com](https://console.groq.com) |
 | `GROQ_MODEL` | Assessment model (default `openai/gpt-oss-120b`) |
 | `GROQ_CHAT_MODEL` | Interview model (default `openai/gpt-oss-20b`) — separate, so a corpus rebuild can't starve the live chat of its daily token budget |
+| `GROQ_ASK_MODEL` | Optional. Model for off-questionnaire questions (falls back to `GROQ_CHAT_MODEL`) |
 | `PRISMTRACE_API_KEY` | Optional. Tracing skips cleanly if unset |
 | `PRISMTRACE_PROJECT_ID` | Optional |
 | `PRISMTRACE_HOST` | Optional |
@@ -250,7 +266,11 @@ node scripts/build-answers.mjs
    Rule on it in the chat and it becomes `confirmed` — the original stays in `history`.
 3. **Answer an amber row.** Say "yes" and watch it drill: how often, automated, last
    tested. Say "hey" and watch it record nothing.
-4. **Click through to `/questionnaire`.** The completed document, with every citation and
+4. **Ask it something the questionnaire never asked** — "who has admin access?", "whose
+   DR plan is this?", "what did the pentest actually find?" It answers from the documents
+   with citations, or tells you it found nothing. It records nothing against the open
+   question.
+5. **Click through to `/questionnaire`.** The completed document, with every citation and
    every remaining gap. Print to PDF or download.
 
 ---

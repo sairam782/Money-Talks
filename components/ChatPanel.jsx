@@ -1,10 +1,15 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import EvidenceChip from './EvidenceChip';
 
 export default function ChatPanel({ messages, onSend, pending, target }) {
   const [text, setText] = useState('');
   const endRef = useRef(null);
-  useEffect(() => endRef.current?.scrollIntoView({ behavior: 'smooth' }), [messages, pending]);
+  // Block body on purpose: a concise arrow returns the call's value, and React
+  // reads anything an effect returns as a cleanup function.
+  useEffect(() => {
+    endRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages, pending]);
 
   const submit = (e) => {
     e.preventDefault();
@@ -36,6 +41,19 @@ export default function ChatPanel({ messages, onSend, pending, target }) {
                 {m.text}
               </div>
             </div>
+            {m.evidence?.length > 0 && (
+              <div className="mt-2 max-w-[88%] space-y-1.5">
+                <div className="label">
+                  {m.evidence.length} citation{m.evidence.length > 1 ? 's' : ''} · not one of the 66
+                </div>
+                {m.evidence.map((e, j) => (
+                  <EvidenceChip key={j} item={e} dense />
+                ))}
+              </div>
+            )}
+            {m.status === 'unknown' && !m.evidence?.length && (
+              <div className="label mt-2 text-[var(--amber)]">no evidence in the documents</div>
+            )}
           </div>
         ))}
         {pending && (
