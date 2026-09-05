@@ -100,8 +100,12 @@ export default function Home() {
           status: data.intent === 'ask' ? data.status : null,
         },
       ]);
+      // Handed back so a hands-free caller knows what to speak and when the
+      // turn is actually over. The transcript on screen stays the record.
+      return data.reply ?? 'Recorded.';
     } catch (err) {
       setMessages((m) => [...m, { role: 'assistant', text: `Something went wrong: ${err.message}` }]);
+      return '';
     } finally {
       setPending(false);
     }

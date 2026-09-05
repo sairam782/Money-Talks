@@ -1,14 +1,19 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import EvidenceChip from './EvidenceChip';
 import { useVoice } from './useVoice';
 
 export default function ChatPanel({ messages, onSend, pending, target, onClearTarget, runId }) {
   const [text, setText] = useState('');
   const [autoSpeak, setAutoSpeak] = useState(false);
+  const [convo, setConvo] = useState(false);
   const endRef = useRef(null);
   const inputRef = useRef(null);
   const spokenRef = useRef(-1);
+  // The loop is driven by refs, not state: a turn is a chain of awaits, and by
+  // the time one resolves the state it closed over is stale.
+  const convoRef = useRef(false);
+  const endTurnRef = useRef(null);
   const voice = useVoice({ runId });
   // Block body on purpose: a concise arrow returns the call's value, and React
   // reads anything an effect returns as a cleanup function.
@@ -20,13 +25,56 @@ export default function ChatPanel({ messages, onSend, pending, target, onClearTa
   // spoke stops a re-render from starting the same sentence twice, and browsers
   // only allow this at all because switching the toggle on was a user gesture.
   useEffect(() => {
-    if (!autoSpeak) return;
+    // In conversation mode the loop below does the speaking, and doing it
+    // here as well would start the same reply twice.
+    if (!autoSpeak || convo) return;
     const i = messages.length - 1;
     const last = messages[i];
     if (!last || last.role !== 'assistant' || spokenRef.current >= i) return;
     spokenRef.current = i;
     voice.play(last.text, i);
-  }, [messages, autoSpeak, voice]);
+  }, [messages, autoSpeak, convo, voice]);
+
+  /**
+   * One hands-free turn: listen, send what was heard, speak the reply, listen
+   * again. Silence ends the turn, so nothing has to be clicked.
+   *
+   * Every step re-checks convoRef because the user can switch the loop off
+   * mid-await, and a turn that keeps going after that would hold the mic open
+   * and talk over them.
+   */
+  const listen = useCallback(async () => {
+    if (!convoRef.current) return;
+    const live = await voice.startRecording({ onSilence: () => endTurnRef.current?.() });
+    if (!live) { convoRef.current = false; setConvo(false); } // mic refused
+  }, [voice]);
+
+  const endTurn = useCallback(async () => {
+    if (!convoRef.current) return;
+    const heard = await voice.stopRecording();
+    if (!convoRef.current) return;
+
+    // Nothing intelligible — say nothing and keep listening rather than
+    // sending an empty turn into the profile.
+    if (!heard) return listen();
+
+    const reply = await onSend(heard);
+    if (!convoRef.current) return;
+    if (reply) await voice.play(reply, -1);
+    listen();
+  }, [voice, onSend, listen]);
+
+  // Kept in a ref so the silence detector always calls the current closure —
+  // it is handed to the recorder once, at the top of a turn.
+  useEffect(() => { endTurnRef.current = endTurn; }, [endTurn]);
+
+  const toggleConvo = () => {
+    const next = !convo;
+    convoRef.current = next;
+    setConvo(next);
+    if (next) { voice.setError(null); listen(); }
+    else { voice.stop(); voice.releaseMic(); }
+  };
 
   /**
    * A recording lands in the input box, not in the profile. The user reads it
@@ -61,10 +109,25 @@ export default function ChatPanel({ messages, onSend, pending, target, onClearTa
 
         <button
           type="button"
+          onClick={toggleConvo}
+          title={convo ? 'Leave conversation mode' : 'Talk to it hands-free'}
+          aria-pressed={convo}
+          className={`mono ml-auto border px-2 py-0.5 text-[9px] font-semibold tracking-widest transition-colors ${
+            convo
+              ? 'border-[var(--green)] bg-[var(--green-bg)] text-[var(--green)]'
+              : 'border-[var(--line)] text-[var(--dim)] hover:text-[var(--muted)]'
+          }`}
+        >
+          {convo ? '◉ CONVERSING' : '◎ CONVERSE'}
+        </button>
+
+        <button
+          type="button"
+          disabled={convo}
           onClick={() => { if (autoSpeak) voice.stop(); setAutoSpeak((v) => !v); }}
           title={autoSpeak ? 'Stop reading replies aloud' : 'Read replies aloud'}
           aria-pressed={autoSpeak}
-          className={`mono ml-auto border px-2 py-0.5 text-[9px] font-semibold tracking-widest transition-colors ${
+          className={`mono border px-2 py-0.5 text-[9px] font-semibold tracking-widest transition-colors disabled:opacity-30 ${
             autoSpeak
               ? 'border-[var(--red-deep)] bg-[var(--red-deep)] text-white'
               : 'border-[var(--line)] text-[var(--dim)] hover:text-[var(--muted)]'
@@ -144,6 +207,25 @@ export default function ChatPanel({ messages, onSend, pending, target, onClearTa
         </div>
       )}
 
+      {convo && (
+        // Turn-taking is invisible without this. Someone who cannot tell
+        // listening from thinking will talk over the reply every time.
+        <div className="label flex items-center gap-2 border-t border-[var(--line)] px-4 py-1.5">
+          <span
+            className={`h-[6px] w-[6px] rounded-full ${
+              voice.hearing ? 'live-dot bg-[var(--green)]'
+              : voice.recording ? 'bg-[var(--green)] opacity-40'
+              : 'bg-[var(--dim)]'
+            }`}
+          />
+          {voice.speakingIndex !== null ? 'speaking…'
+            : pending || voice.busy ? 'thinking…'
+            : voice.hearing ? 'hearing you'
+            : voice.recording ? 'listening — just talk'
+            : 'starting…'}
+        </div>
+      )}
+
       {voice.error && (
         // Voice failing is a downgrade, not a broken app — the reply is already
         // on screen and readable. Say so quietly and stay out of the way.
@@ -156,7 +238,9 @@ export default function ChatPanel({ messages, onSend, pending, target, onClearTa
         <button
           type="button"
           onClick={toggleMic}
-          disabled={voice.busy}
+          // The loop owns the mic while it runs; two recorders on one stream
+          // is how you end up transcribing half a sentence.
+          disabled={voice.busy || convo}
           title={voice.recording ? 'Stop recording' : 'Answer out loud'}
           aria-label={voice.recording ? 'Stop recording' : 'Answer out loud'}
           className={`mono shrink-0 border px-3 py-2 text-[11px] leading-none transition-colors disabled:opacity-30 ${
