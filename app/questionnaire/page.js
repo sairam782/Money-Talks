@@ -37,29 +37,29 @@ export default function QuestionnairePage() {
   }
 
   return (
-    <main className="flex h-screen flex-col bg-slate-100">
-      <header className="flex items-center gap-3 border-b border-slate-200 bg-white px-5 py-2.5">
-        <a href="/" className="text-sm text-slate-500 hover:text-slate-800">&larr; Back to the interview</a>
-        <span className="text-sm font-medium text-slate-800">Completed questionnaire</span>
+    <main className="flex h-screen flex-col bg-[var(--bg)]">
+      <header className="flex items-center gap-3 border-b border-[var(--line)] bg-[var(--panel)] px-5 py-2.5">
+        <a href="/" className="mono text-[10px] tracking-widest text-[var(--muted)] hover:text-[var(--ink)]">&larr; BACK TO INTERVIEW</a>
+        <span className="mono text-[10px] tracking-widest text-[var(--ink)]">COMPLETED QUESTIONNAIRE</span>
         <div className="ml-auto flex gap-2">
           <button
             onClick={() => window.print()}
             disabled={!html}
-            className="rounded-md border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-700 disabled:opacity-40"
+            className="mono border border-[var(--line)] px-3 py-1.5 text-[10px] font-semibold tracking-widest text-[var(--muted)] hover:text-[var(--ink)] disabled:opacity-30"
           >
-            Print / PDF
+            PRINT / PDF
           </button>
           <button
             onClick={download}
             disabled={!html}
-            className="rounded-md bg-emerald-700 px-3 py-1.5 text-xs font-medium text-white disabled:opacity-40"
+            className="mono bg-[var(--red-deep)] px-3 py-1.5 text-[10px] font-bold tracking-widest text-white disabled:opacity-30"
           >
             Download
           </button>
         </div>
       </header>
-      {error && <p className="p-6 text-sm text-rose-700">Could not generate: {error}</p>}
-      {!html && !error && <p className="p-6 text-sm text-slate-500">Generating…</p>}
+      {error && <p className="mono p-6 text-[11px] text-[var(--red)]">COULD NOT GENERATE: {error}</p>}
+      {!html && !error && <p className="mono p-6 text-[11px] tracking-widest text-[var(--muted)]">GENERATING…</p>}
       {html && <iframe srcDoc={html} title="Completed questionnaire" className="min-h-0 flex-1 bg-white" />}
     </main>
   );

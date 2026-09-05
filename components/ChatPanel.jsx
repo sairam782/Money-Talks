@@ -16,44 +16,64 @@ export default function ChatPanel({ messages, onSend, pending, target }) {
 
   return (
     <div className="flex h-full flex-col">
-      <div className="flex-1 space-y-3 overflow-y-auto p-4">
+      <div className="flex items-center gap-2 border-b border-[var(--line)] px-4 py-2">
+        <span className="live-dot h-[6px] w-[6px] rounded-full bg-[var(--green)]" />
+        <span className="label">secure_channel</span>
+        <span className="mono ml-auto text-[9px] tracking-wider text-[var(--dim)]">encrypted · audited</span>
+      </div>
+
+      <div className="scan flex-1 space-y-4 overflow-y-auto p-4">
         {messages.map((m, i) => (
-          <div key={i} className={m.role === 'user' ? 'flex justify-end' : ''}>
-            <div
-              className={`max-w-[85%] whitespace-pre-wrap rounded-lg px-3 py-2 text-sm ${
-                m.role === 'user'
-                  ? 'bg-slate-800 text-white'
-                  : 'border border-slate-200 bg-white text-slate-700'
-              }`}
-            >
-              {m.text}
+          <div key={i}>
+            <div className={`label mb-1 ${m.role === 'user' ? 'text-right' : ''}`}>
+              {m.role === 'user' ? 'you' : 'cross ai'}
+            </div>
+            <div className={m.role === 'user' ? 'flex justify-end' : ''}>
+              <div
+                className={`max-w-[88%] whitespace-pre-wrap px-3 py-2 text-[13px] leading-relaxed ${
+                  m.role === 'user'
+                    ? 'bg-[var(--red-deep)] text-white'
+                    : 'border border-[var(--line)] bg-[var(--panel-2)] text-[var(--ink)]'
+                }`}
+              >
+                {m.text}
+              </div>
             </div>
           </div>
         ))}
         {pending && (
-          <div className="text-sm text-slate-400">thinking…</div>
+          <div>
+            <div className="label mb-1">cross ai</div>
+            <div className="relative inline-block overflow-hidden border border-[var(--line)] bg-[var(--panel-2)] px-3 py-2">
+              <span className="mono text-[11px] tracking-widest text-[var(--muted)]">ANALYSING…</span>
+              <span className="sweep pointer-events-none absolute inset-0" />
+            </div>
+          </div>
         )}
         <div ref={endRef} />
       </div>
 
       {target && (
-        <div className="border-t border-slate-200 bg-amber-50 px-4 py-2 text-xs text-amber-900">
-          Answering <span className="font-semibold">{target.num}</span> — {target.questionText}
+        <div className="border-t border-[var(--line)] bg-[rgba(234,179,8,.05)] px-4 py-2">
+          <span className="mono text-[10px] tracking-wider text-[var(--amber)]">
+            ON_QUESTION {target.num}
+          </span>
+          <p className="mt-0.5 text-[11px] leading-snug text-[var(--muted)]">{target.questionText}</p>
         </div>
       )}
 
-      <form onSubmit={submit} className="flex gap-2 border-t border-slate-200 bg-white p-3">
+      <form onSubmit={submit} className="flex gap-2 border-t border-[var(--line)] p-3">
         <input
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder={target ? 'Your answer…' : 'Type to answer the next open question…'}
-          className="flex-1 rounded-md border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500"
+          placeholder={target ? 'Answer, or ask me anything…' : 'Type to begin…'}
+          className="mono flex-1 border border-[var(--line)] bg-[var(--bg)] px-3 py-2 text-[12px] text-[var(--ink)] outline-none placeholder:text-[var(--dim)] focus:border-[var(--red-deep)]"
         />
         <button
           disabled={pending || !text.trim()}
-          className="rounded-md bg-slate-800 px-4 py-2 text-sm font-medium text-white disabled:opacity-40"
+          className="mono border border-[var(--red-deep)] bg-[var(--red-deep)] px-4 py-2 text-[10px] font-semibold tracking-widest text-white disabled:opacity-30"
         >
-          Send
+          SEND
         </button>
       </form>
     </div>

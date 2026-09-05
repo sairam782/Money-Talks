@@ -1,26 +1,53 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg:        #08080b;
+  --panel:     #0e0e13;
+  --panel-2:   #121219;
+  --line:      #1e1e27;
+  --line-soft: #17171f;
+  --ink:       #e8e8ee;
+  --muted:     #6f6f80;
+  --dim:       #4a4a58;
+  --green:     #22c55e;
+  --blue:      #3b82f6;
+  --violet:    #8b5cf6;
+  --amber:     #eab308;
+  --red:       #ef4444;
+  --red-deep:  #dc2626;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+html, body { height: 100%; background: var(--bg); color: var(--ink); }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  /* faint engineering grid */
+  background-image:
+    linear-gradient(rgba(255,255,255,.016) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.016) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.mono { font-family: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace; }
+
+.label {
+  font-family: var(--font-geist-mono), ui-monospace, Menlo, monospace;
+  font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+}
+
+.panel { background: var(--panel); border: 1px solid var(--line); }
+
+.scan::-webkit-scrollbar { width: 8px; height: 8px; }
+.scan::-webkit-scrollbar-track { background: transparent; }
+.scan::-webkit-scrollbar-thumb { background: #23232e; border-radius: 4px; }
+.scan::-webkit-scrollbar-thumb:hover { background: #30303d; }
+
+@keyframes pulseDot { 0%,100% { opacity: 1 } 50% { opacity: .25 } }
+.live-dot { animation: pulseDot 1.8s ease-in-out infinite; }
+
+@keyframes sweep { from { transform: translateX(-100%) } to { transform: translateX(300%) } }
+.sweep::after {
+  content: ''; position: absolute; inset: 0 auto 0 0; width: 33%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.09), transparent);
+  animation: sweep 3.4s linear infinite;
 }
