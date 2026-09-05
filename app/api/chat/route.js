@@ -54,13 +54,18 @@ export async function POST(req) {
 
   // Not an answer — reply, record nothing, leave the question where it was.
   if (!turn.isAnswer || !question) {
+    // We did put the question to them, though. Remember that, so moving on does
+    // not land back on the same row.
+    const seen = turn.moveOn && targetId
+      ? { ...profile, askedQuestions: [...new Set([...profile.askedQuestions, targetId])] }
+      : profile;
     return NextResponse.json({
       reply: turn.reply,
-      profile,
+      profile: seen,
       action: turn.intent,
       recorded: false,
-      coverage: coverage(profile),
-      nextQuestionId: turn.moveOn ? nextOpenQuestion(profile)?.questionId ?? null : targetId,
+      coverage: coverage(seen),
+      nextQuestionId: turn.moveOn ? nextOpenQuestion(seen)?.questionId ?? null : targetId,
       evidence: question?.evidence ?? [],
     });
   }
