@@ -9,7 +9,7 @@ const LABEL = {
   verified:  ['VERIFIED',  '#047857', 'found in Regodit documents, with citation'],
   confirmed: ['CONFIRMED', '#0369a1', 'stated by the vendor'],
   partial:   ['PARTIAL',   '#6d28d9', 'answered, detail outstanding'],
-  unknown:   ['UNKNOWN',   '#b45309', 'no evidence found — outstanding'],
+  unknown:   ['NEEDS CONFIRMATION', '#b45309', 'not evidenced in the source documents — awaiting vendor confirmation'],
   conflict:  ['CONFLICT',  '#be123c', 'sources disagree — unresolved'],
 };
 const EV = { observed: 'observed (reality)', attested: 'attested (intent)', asserted: 'asserted (testimony)' };
@@ -114,8 +114,9 @@ Nothing on this page was inferred.</p>
    ${Object.entries(evTally).map(([k, v]) => `<span>${v} ${k}</span>`).join('')}</div>
 </div>
 ${rows}
-<p class="sub" style="margin-top:30px">Answers marked <b>unknown</b> are deliberate. Where the
-documents did not support an answer, none was given.</p>
+<p class="sub" style="margin-top:30px">Rows marked <b>needs confirmation</b> are deliberate. Where the
+source documents did not support an answer, none was invented — the outstanding question is
+stated instead.</p>
 </body></html>`;
 
   return new Response(html, { headers: { 'Content-Type': 'text/html; charset=utf-8' } });

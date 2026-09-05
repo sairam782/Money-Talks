@@ -4,7 +4,7 @@ export const STATES = [
   { key: 'verified',  label: 'verified',  color: 'var(--green)',  help: 'found in their documents, with a citation' },
   { key: 'confirmed', label: 'confirmed', color: 'var(--blue)',   help: 'the vendor told us' },
   { key: 'partial',   label: 'partial',   color: 'var(--violet)', help: 'answered, but a detail is missing' },
-  { key: 'unknown',   label: 'unknown',   color: 'var(--amber)',  help: 'an honest, visible gap' },
+  { key: 'unknown',   label: 'needs confirmation', color: 'var(--amber)',  help: 'not evidenced in the documents — we ask you' },
   { key: 'conflict',  label: 'conflict',  color: 'var(--red)',    help: 'sources disagree — a human must rule' },
 ];
 

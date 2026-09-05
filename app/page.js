@@ -59,7 +59,7 @@ export default function Home() {
             text:
               `I read your 21 documents and answered all ${all.length} questions from them before asking you anything.\n\n` +
               `${verified} verified from your own documents. ${conflicts} conflicts where your documents contradict each other. ` +
-              `${unknown} honest gaps I could not evidence.\n\n` +
+              `${unknown} I could not evidence from your documents — those need your confirmation.\n\n` +
               `Open a red row to see both sides quoted, or answer a gap below.`,
           },
         ]);
@@ -122,7 +122,7 @@ export default function Home() {
             <div className="hidden items-center gap-5 sm:flex">
               <Stat n={s_.verified ?? 0} label="verified" color="var(--green)" />
               <Stat n={s_.conflict ?? 0} label="conflicts" color="var(--red)" />
-              <Stat n={s_.unknown ?? 0} label="gaps" color="var(--amber)" />
+              <Stat n={s_.unknown ?? 0} label="to confirm" color="var(--amber)" />
             </div>
             <a
               href="/questionnaire"

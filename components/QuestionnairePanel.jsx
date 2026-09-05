@@ -91,7 +91,7 @@ function Row({ a, onPick }) {
 
           {!a.evidence?.length && !a.conflict && (
             <p className="text-[11px] leading-relaxed text-[var(--muted)]">
-              <span className="mono tracking-wider text-[var(--amber)]">NO EVIDENCE IN SOURCE DOCUMENTS. </span>
+              <span className="mono tracking-wider text-[var(--amber)]">NEEDS CONFIRMATION — not evidenced in your documents. </span>
               {a.followUpQuestion}
             </p>
           )}
