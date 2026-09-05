@@ -29,8 +29,16 @@ function Row({ a, onPick }) {
             CONFLICT
           </span>
         )}
+        {a.confidence > 0 && (
+          <span
+            className="shrink-0 text-[10px] tabular-nums text-slate-400"
+            title={`confidence ${Math.round(a.confidence * 100)}% · ${a.evidence.length} citation${a.evidence.length === 1 ? '' : 's'}`}
+          >
+            {Math.round(a.confidence * 100)}%
+          </span>
+        )}
         {a.evidence?.length > 0 && (
-          <span className="shrink-0 text-[10px] tabular-nums text-slate-400">{a.evidence.length}</span>
+          <span className="shrink-0 text-[10px] tabular-nums text-slate-300">{a.evidence.length}</span>
         )}
       </button>
 

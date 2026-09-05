@@ -17,8 +17,18 @@ const EV = { observed: 'observed (reality)', attested: 'attested (intent)', asse
 const esc = (s) =>
   String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
+/** GET renders the corpus pass. POST renders the live profile, including
+ *  everything the user confirmed or ruled on during the interview. */
+export async function POST(req) {
+  const { profile } = await req.json().catch(() => ({}));
+  return render(profile?.answers ? profile : initialProfile());
+}
+
 export async function GET() {
-  const profile = initialProfile();
+  return render(initialProfile());
+}
+
+function render(profile) {
   const answers = Object.values(profile.answers);
   const topics = [...new Set(answers.map((a) => a.topic))];
 

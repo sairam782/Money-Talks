@@ -53,3 +53,6 @@ data/
 
 # Internal demo script — quotes the corpus (named individual, VAPT findings)
 PLAN.md
+
+# .env.example holds key NAMES only and belongs in the repo
+!.env.example

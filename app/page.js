@@ -70,7 +70,7 @@ export default function Home() {
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: text, profile, currentQuestionId: targetId }),
+        body: JSON.stringify({ message: text, profile, currentQuestionId: targetId, history: messages.slice(-6) }),
       });
       const data = await res.json();
       if (data.profile) setProfile(data.profile);
@@ -105,12 +105,21 @@ export default function Home() {
             answered from their own documents · {coverage.total} questions
           </span>
           <div className="ml-auto flex gap-2">
-            <a
-              href="/api/questionnaire"
+            <button
+              onClick={async () => {
+                const res = await fetch('/api/questionnaire', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ profile }),
+                });
+                const w = window.open('', '_blank');
+                w.document.write(await res.text());
+                w.document.close();
+              }}
               className="rounded-md bg-emerald-700 px-3 py-1.5 text-xs font-medium text-white hover:bg-emerald-800"
             >
               Generate questionnaire
-            </a>
+            </button>
             <button onClick={reset} className="text-xs text-slate-400 hover:text-slate-600">
               reset
             </button>
