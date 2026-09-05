@@ -49,10 +49,19 @@ next-env.d.ts
 3. Security Assessment Reports/
 4. Contracts_agreements/
 5. Infrastructure_internal info/
-data/
+
+# The three runtime JSON files ARE committed, by the repo owner's explicit
+# decision, so the deployed app has data to render. They carry quoted extracts
+# from the documents above, including staff names and VAPT findings. The
+# original source documents, and the generated PDFs, stay out.
+data/pdf/
+!data/questions.json
+!data/answers.json
+!data/corpus.json
 
 # Internal demo script — quotes the corpus (named individual, VAPT findings)
 PLAN.md
 
 # .env.example holds key NAMES only and belongs in the repo
 !.env.example
+data/answers.prev.json

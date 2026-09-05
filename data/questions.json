@@ -1,0 +1,399 @@
+[
+ {
+  "id": "q1",
+  "num": "1.0",
+  "topic": "Governance",
+  "text": "Does your organization have a formal Information Security Program established?"
+ },
+ {
+  "id": "q2",
+  "num": "2.0",
+  "topic": "Governance",
+  "text": "Does your organization have a published set of Information Security policies, standards and procedures?"
+ },
+ {
+  "id": "q3",
+  "num": "3.0",
+  "topic": "Governance",
+  "text": "Does your organization have a public information security policy?"
+ },
+ {
+  "id": "q4",
+  "num": "4.0",
+  "topic": "Governance",
+  "text": "Does your organization document role descriptions including relevant cybersecurity & data protection responsibilities?"
+ },
+ {
+  "id": "q5",
+  "num": "5.0",
+  "topic": "Governance",
+  "text": "Is there a procedure in place for overseeing cybersecurity and data protection controls, that includes how issues are escalated to leadership?"
+ },
+ {
+  "id": "q6",
+  "num": "6.0",
+  "topic": "Third-Party Risk Management",
+  "text": "Will you be using any contractors or sub-contractors to complete the engagement with Client XYZ?"
+ },
+ {
+  "id": "q7",
+  "num": "7.0",
+  "topic": "Third-Party Risk Management",
+  "text": "Do you have a third-party risk management program/policy in place?"
+ },
+ {
+  "id": "q8",
+  "num": "8.0",
+  "topic": "Third-Party Risk Management",
+  "text": "Please attach your Third-Party Risk Management Policy."
+ },
+ {
+  "id": "q9",
+  "num": "9.0",
+  "topic": "Third-Party Risk Management",
+  "text": "Does your third-party risk management program include supply chain protections?"
+ },
+ {
+  "id": "q10",
+  "num": "10.0",
+  "topic": "Third-Party Risk Management",
+  "text": "Do your vendor and subcontractor agreements include clauses requiring adherence to cybersecurity and data privacy standards, and do these requirements flow down to all applicable subcontractors and suppliers?"
+ },
+ {
+  "id": "q11",
+  "num": "11.0",
+  "topic": "Security Awareness & Training",
+  "text": "Do you provide security awareness training at onboarding and at least annually thereafter for all personnel including contractors?"
+ },
+ {
+  "id": "q12",
+  "num": "12.0",
+  "topic": "Security Awareness & Training",
+  "text": "How frequently are employees trained on policies in your organization?"
+ },
+ {
+  "id": "q13",
+  "num": "13.0",
+  "topic": "Security Awareness & Training",
+  "text": "Does your organization provide role based security awareness training at least annually?"
+ },
+ {
+  "id": "q14",
+  "num": "14.0",
+  "topic": "Privacy",
+  "text": "Does your organization have privacy controls and or Data Privacy program in place?"
+ },
+ {
+  "id": "q15",
+  "num": "15.0",
+  "topic": "Privacy",
+  "text": "Will your personnel or your product require access to sensitive data (i.e PII, PI, PHI) to complete the engagement with Regodit?"
+ },
+ {
+  "id": "q16",
+  "num": "16.0",
+  "topic": "Privacy",
+  "text": "Please provide a copy of your data retention schedule and secure disposal procedures"
+ },
+ {
+  "id": "q17",
+  "num": "17.0",
+  "topic": "Privacy",
+  "text": "Do you have a privacy policy in place? If so, please provide the attachment or URL."
+ },
+ {
+  "id": "q18",
+  "num": "18.0",
+  "topic": "Privacy",
+  "text": "Does your organization ensure privacy requirements are extended to contractors and service providers through contractual agreements, and that roles and responsibilities concerning data privacy are clearly understood and documented?"
+ },
+ {
+  "id": "q19",
+  "num": "19.0",
+  "topic": "Data Security",
+  "text": "Do you, or any third party you use to deliver services to Client XYZ, store sensitive information outside the United States? If so, where?"
+ },
+ {
+  "id": "q20",
+  "num": "20.0",
+  "topic": "Data Security",
+  "text": "Do you require data-at-rest encryption for sensitive data?"
+ },
+ {
+  "id": "q21",
+  "num": "21.0",
+  "topic": "Data Security",
+  "text": "Do you require data-in-transit encryption for sensitive data? If so, please describe the encryption protocols used."
+ },
+ {
+  "id": "q22",
+  "num": "22.0",
+  "topic": "Data Security",
+  "text": "Will Regodit data be stored on site, in a data center, or by a third party?"
+ },
+ {
+  "id": "q23",
+  "num": "23.0",
+  "topic": "Data Security",
+  "text": "Do you have data retention policies and procedures for the secure disposal of information?"
+ },
+ {
+  "id": "q24",
+  "num": "24.0",
+  "topic": "Data Security",
+  "text": "If providing a product or SaaS platform that will access, store, or process Client XYZ data, are you able to provide applicable data flow diagrams showing how Regodit's data will flow through the tool upon request?"
+ },
+ {
+  "id": "q25",
+  "num": "25.0",
+  "topic": "Physical Security",
+  "text": "Is there a policy in place for physical security requirements for your business?"
+ },
+ {
+  "id": "q26",
+  "num": "26.0",
+  "topic": "Physical Security",
+  "text": "Do you require physical access to any Client XYZ locations to complete your engagement?"
+ },
+ {
+  "id": "q27",
+  "num": "27.0",
+  "topic": "Physical Security",
+  "text": "Are you willing to accept and acknowledge the expectations outlined in Client XYZ's Visitor Management document?"
+ },
+ {
+  "id": "q28",
+  "num": "28.0",
+  "topic": "Physical Security",
+  "text": "Does your organization have procedures in place to track assets that are brought onto Client XYZ sites?"
+ },
+ {
+  "id": "q29",
+  "num": "29.0",
+  "topic": "Physical Security",
+  "text": "Can you provide your organization's data protection policy, including evidence of physical safeguards for devices used onsite if requested?"
+ },
+ {
+  "id": "q30",
+  "num": "30.0",
+  "topic": "Web Application Security",
+  "text": "Will Client XYZ be using a web application provided by you?"
+ },
+ {
+  "id": "q31",
+  "num": "31.0",
+  "topic": "Web Application Security",
+  "text": "What is the name of your web application?"
+ },
+ {
+  "id": "q32",
+  "num": "32.0",
+  "topic": "Web Application Security",
+  "text": "What is the function/purpose of your web application?"
+ },
+ {
+  "id": "q33",
+  "num": "33.0",
+  "topic": "Web Application Security",
+  "text": "How do you report application security vulnerabilities?"
+ },
+ {
+  "id": "q34",
+  "num": "34.0",
+  "topic": "Web Application Security",
+  "text": "Does your web application have an SSL/TLS certificate?"
+ },
+ {
+  "id": "q35",
+  "num": "35.0",
+  "topic": "Web Application Security",
+  "text": "Does your application offer single sign-on (SSO) or are there plans to implement/offer SSO in the near future? If plans to implement in near future, include an implementation date in your justification."
+ },
+ {
+  "id": "q36",
+  "num": "36.0",
+  "topic": "Secure Coding",
+  "text": "Do you have policies, procedures or standards in place for secure development practices?"
+ },
+ {
+  "id": "q37",
+  "num": "37.0",
+  "topic": "Secure Coding",
+  "text": "Do you utilize Secure Coding Principles - (Detailed logging, encrypted credentials, etc.)?"
+ },
+ {
+  "id": "q38",
+  "num": "38.0",
+  "topic": "Vulnerability Management",
+  "text": "Are internal vulnerability scans performed?"
+ },
+ {
+  "id": "q39",
+  "num": "39.0",
+  "topic": "Vulnerability Management",
+  "text": "On what cadence are vulnerability scans performed?"
+ },
+ {
+  "id": "q40",
+  "num": "40.0",
+  "topic": "Vulnerability Management",
+  "text": "What are the documented remediation timelines for critical and high patches?"
+ },
+ {
+  "id": "q41",
+  "num": "41.0",
+  "topic": "Business Continuity & Disaster Recovery",
+  "text": "What is the process for disaster recovery and backups?"
+ },
+ {
+  "id": "q42",
+  "num": "42.0",
+  "topic": "Business Continuity & Disaster Recovery",
+  "text": "Please provide a copy of your BC/DR policy for review."
+ },
+ {
+  "id": "q43",
+  "num": "43.0",
+  "topic": "Incident Response",
+  "text": "Do you keep a record of security events?"
+ },
+ {
+  "id": "q44",
+  "num": "44.0",
+  "topic": "Incident Response",
+  "text": "Do you monitor the security of your wireless networks?"
+ },
+ {
+  "id": "q45",
+  "num": "45.0",
+  "topic": "Incident Response",
+  "text": "Do you have an incident response plan in place? If yes, describe briefly."
+ },
+ {
+  "id": "q46",
+  "num": "46.0",
+  "topic": "Incident Response",
+  "text": "How often is your Incident Response Plan Tested?(Drop Down)"
+ },
+ {
+  "id": "q47",
+  "num": "47.0",
+  "topic": "Incident Response",
+  "text": "Do you have a policy requiring prompt notice to third parties regarding information security events affecting your organization?"
+ },
+ {
+  "id": "q48",
+  "num": "48.0",
+  "topic": "Incident Response",
+  "text": "Regardless of materiality, have you had a security event in the last 5 years?"
+ },
+ {
+  "id": "q49",
+  "num": "49.0",
+  "topic": "Incident Response",
+  "text": "Do you outsource security functions to third-party providers?"
+ },
+ {
+  "id": "q50",
+  "num": "50.0",
+  "topic": "Network & Endpoint Security",
+  "text": "Do you use anti virus software to protect your devices? If yes, describe."
+ },
+ {
+  "id": "q51",
+  "num": "51.0",
+  "topic": "Network & Endpoint Security",
+  "text": "Will your organization be accessing Client XYZ's network?"
+ },
+ {
+  "id": "q52",
+  "num": "52.0",
+  "topic": "Network & Endpoint Security",
+  "text": "(blank in source workbook)",
+  "malformed": true
+ },
+ {
+  "id": "q53",
+  "num": "53.0",
+  "topic": "Network & Endpoint Security",
+  "text": "Please list out all authorized personnel, including first and last names and e-mail addresses from your organization that will have access to Client XYZ's assets or network."
+ },
+ {
+  "id": "q54",
+  "num": "54.0",
+  "topic": "Network & Endpoint Security",
+  "text": "Please submit a network architecture diagram and details of your endpoint protection measures, including how your organization complies with firewall and DNS security standards when accessing XYZ's networks."
+ },
+ {
+  "id": "q55",
+  "num": "55.0",
+  "topic": "Asset Management",
+  "text": "Do you keep an inventory of information technology (IT) assets and software?"
+ },
+ {
+  "id": "q56",
+  "num": "56.0",
+  "topic": "Asset Management",
+  "text": "Does your organization have identity and access controls in place?"
+ },
+ {
+  "id": "q57",
+  "num": "57.0",
+  "topic": "Asset Management",
+  "text": "Does your organization leverage role-based access control?"
+ },
+ {
+  "id": "q58",
+  "num": "58.0",
+  "topic": "Asset Management",
+  "text": "Do you limit and periodically review user access privileges and controls?"
+ },
+ {
+  "id": "q59",
+  "num": "59.0",
+  "topic": "Asset Management",
+  "text": "What is the cadence of your access reviews?(Drop Down)"
+ },
+ {
+  "id": "q60",
+  "num": "60.0",
+  "topic": "Asset Management",
+  "text": "Does your organization require replay-resistant authentication mechanisms such as OTP or MFA?"
+ },
+ {
+  "id": "q61",
+  "num": "61.0",
+  "topic": "Asset Management",
+  "text": "Are the external authenticators in use, NIST compliant?"
+ },
+ {
+  "id": "q62",
+  "num": "62.0",
+  "topic": "Asset Management",
+  "text": "Does your organization enforce the principle of least privilege?"
+ },
+ {
+  "id": "q63",
+  "num": "63.0",
+  "topic": "Risk Assessment",
+  "text": "Do you conduct information security risk assessments at least annually?"
+ },
+ {
+  "id": "q64",
+  "num": "64.0",
+  "topic": "Risk Assessment",
+  "text": "How do you prioritize critical assets for your organization?"
+ },
+ {
+  "id": "q65",
+  "num": "65.0",
+  "topic": "Risk Assessment",
+  "text": "Does your organization conduct penetration testing at least annually?"
+ },
+ {
+  "id": "q66",
+  "num": "66.0",
+  "topic": "Risk Assessment",
+  "text": "Have the findings from the most recent penetration test been remediated?"
+ }
+]

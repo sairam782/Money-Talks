@@ -1,0 +1,1395 @@
+{
+ "runId": "run_1788625725835_9hal8k",
+ "model": "openai/gpt-oss-120b",
+ "generatedAt": "2026-09-05T16:40:05.699Z",
+ "answers": [
+  {
+   "questionId": "q1",
+   "num": "1.0",
+   "topic": "Governance",
+   "questionText": "Does your organization have a formal Information Security Program established?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q2",
+   "num": "2.0",
+   "topic": "Governance",
+   "questionText": "Does your organization have a published set of Information Security policies, standards and procedures?",
+   "status": "partial",
+   "value": "Regodit has multiple attested policies such as Information Security Policy, Asset Management Policy, Cryptography Policy, and Data Classification Policy.",
+   "confidence": 0.8,
+   "observedCheck": "none present",
+   "evidence": [
+    {
+     "docId": "regodit_asset_management_policy_v1_0",
+     "docName": "Regodit_asset_management_policy_v1.0",
+     "quote": "the overall direction for this policy is set by the Information Security Policy.",
+     "evidenceType": "attested",
+     "date": null
+    },
+    {
+     "docId": "regodit_information_security_policy_v1_0",
+     "docName": "Regodit_information_security_policy_v1.0",
+     "quote": "Information is classified as Public, Internal, Confidential, or Restricted.",
+     "evidenceType": "attested",
+     "date": null
+    },
+    {
+     "docId": "regodit_cryptography_policy_v1_0",
+     "docName": "Regodit_cryptography_policy_v1.0",
+     "quote": "Sensitive data at rest is encrypted using AES-256.",
+     "evidenceType": "attested",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": "Provide observed evidence (e.g., a public repository link or internal portal) showing the policies are published and accessible.",
+   "conflict": null
+  },
+  {
+   "questionId": "q3",
+   "num": "3.0",
+   "topic": "Governance",
+   "questionText": "Does your organization have a public information security policy?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q4",
+   "num": "4.0",
+   "topic": "Governance",
+   "questionText": "Does your organization document role descriptions including relevant cybersecurity & data protection responsibilities?",
+   "status": "partial",
+   "value": "Roles such as Security Lead are listed in access review records, but a formal document describing cybersecurity responsibilities per role is not observed.",
+   "confidence": 0.6,
+   "observedCheck": "none present",
+   "evidence": [
+    {
+     "docId": "access_review_records",
+     "docName": "Access_Review_Records",
+     "quote": "Reviewer Designation | Security Lead",
+     "evidenceType": "observed",
+     "date": "2026-09-04"
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": "Provide the document that defines role descriptions and associated cybersecurity/data protection responsibilities.",
+   "conflict": null
+  },
+  {
+   "questionId": "q5",
+   "num": "5.0",
+   "topic": "Governance",
+   "questionText": "Is there a procedure in place for overseeing cybersecurity and data protection controls, that includes how issues are escalated to leadership?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q6",
+   "num": "6.0",
+   "topic": "Third-Party Risk Management",
+   "questionText": "Will you be using any contractors or sub-contractors to complete the engagement with Client XYZ?",
+   "status": "verified",
+   "value": "Yes, Regodit uses contractors (e.g., an IT Support contractor).",
+   "confidence": 0.99,
+   "observedCheck": "Observed passages show contractors are present (e.g., M. Delgado listed as Contractor - IT Support in the access review and as a contractor in the asset inventory).",
+   "evidence": [
+    {
+     "docId": "access_review_records",
+     "docName": "Access_Review_Records",
+     "quote": "M. Delgado | m.delgado@regodit.net | Contractor - IT Support | Admin | 03-22-26 | N | Revoke access | N/A",
+     "evidenceType": "observed",
+     "date": "2026-09-04"
+    },
+    {
+     "docId": "asset_inventory_regodit",
+     "docName": "Asset_Inventory_Regodit",
+     "quote": "SN-100240 | Laptop | Dell Latitude 5420 | m.delgado@regodit.net (contractor) | 02/01/2023 | Dell Technologies | Retired | 08/30/2026 | Wiped and decommissioned per offboarding checklist",
+     "evidenceType": "observed",
+     "date": "2026-08-30"
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q7",
+   "num": "7.0",
+   "topic": "Third-Party Risk Management",
+   "questionText": "Do you have a third-party risk management program/policy in place?",
+   "status": "partial",
+   "value": "Regodit references third‑party risk management in its Risk Management Policy (section 8).",
+   "confidence": 0.75,
+   "observedCheck": "none present",
+   "evidence": [
+    {
+     "docId": "regodit_risk_management_policy_v1_0",
+     "docName": "Regodit._risk_management_policy_v1.0",
+     "quote": "8. Third-Party and Vendor Risk Management",
+     "evidenceType": "attested",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": "Can you provide the full Third‑Party Risk Management Policy and evidence of its operational use?",
+   "conflict": null
+  },
+  {
+   "questionId": "q8",
+   "num": "8.0",
+   "topic": "Third-Party Risk Management",
+   "questionText": "Please attach your Third-Party Risk Management Policy.",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q9",
+   "num": "9.0",
+   "topic": "Third-Party Risk Management",
+   "questionText": "Does your third-party risk management program include supply chain protections?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q10",
+   "num": "10.0",
+   "topic": "Third-Party Risk Management",
+   "questionText": "Do your vendor and subcontractor agreements include clauses requiring adherence to cybersecurity and data privacy standards, and do these requirements flow down to all applicable subcontractors and suppliers?",
+   "status": "partial",
+   "value": "Regodit’s Master Services Agreement includes security and privacy obligations, but does not explicitly state that these requirements flow down to subcontractors.",
+   "confidence": 0.78,
+   "observedCheck": "none present",
+   "evidence": [
+    {
+     "docId": "master_services_agreement",
+     "docName": "Master Services Agreement",
+     "quote": "Vendor will ensure that any personal information (“PII”) that is included in Customer Information, Company Data, or Company Confidential Information is protected against misuse and loss, and from unauthorized access, modification or disclosure, by (i) complying with the security provisions set forth in this Agreement; (ii) complying with all privacy laws and other applicable laws with respect to such PII and its collection; (iii) not using the Company Information other than necessary to perform pursuant to this Agreement or the applicable SOW; (iv) not process or maintain the PII outside the United States; (v) not disclose the PII to any third party; (vi) disclose PII to its employees only a need to know basis; and (vii) deliver to Company and/or destroy all copies of the PII upon request by Company.",
+     "evidenceType": "attested",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": "Can you provide the vendor/subcontractor agreement language that requires cybersecurity and data‑privacy standards to flow down to downstream subcontractors?",
+   "conflict": null
+  },
+  {
+   "questionId": "q11",
+   "num": "11.0",
+   "topic": "Security Awareness & Training",
+   "questionText": "Do you provide security awareness training at onboarding and at least annually thereafter for all personnel including contractors?",
+   "status": "partial",
+   "value": "All employees receive security awareness training, including how to recognize and report a suspected incident at onboarding and annually thereafter",
+   "confidence": 0.85,
+   "observedCheck": "none present",
+   "evidence": [
+    {
+     "docId": "regodit_incident_management_policy_v1_0",
+     "docName": "Regodit_Incident_Management_Policy_v1.0",
+     "quote": "All employees receive security awareness training, including how to recognize and report a suspected incident at onboarding and annually thereafter",
+     "evidenceType": "attested",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": "Provide observed evidence (e.g., training attendance logs, completion certificates) that security awareness training is delivered at onboarding and at least annually for all personnel, including contractors.",
+   "conflict": null
+  },
+  {
+   "questionId": "q12",
+   "num": "12.0",
+   "topic": "Security Awareness & Training",
+   "questionText": "How frequently are employees trained on policies in your organization?",
+   "status": "partial",
+   "value": "All personnel, including contractors and third-party users with access to critical systems or data, must complete a formal information security awareness training program upon joining the organization",
+   "confidence": 0.8,
+   "observedCheck": "none present",
+   "evidence": [
+    {
+     "docId": "regodit_hr_policy_v1_0",
+     "docName": "Regodit_hr_policy_v1.0",
+     "quote": "All personnel, including contractors and third-party users with access to critical systems or data, must complete a formal information security awareness training program upon joining the organization. This training covers key areas such as password hygiene, phishing awareness, secure data handling, and regulatory compliance.",
+     "evidenceType": "attested",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": "Specify the exact frequency (e.g., annually, semi‑annually) at which employees receive refresher training on policies and provide observed records of such training events.",
+   "conflict": null
+  },
+  {
+   "questionId": "q13",
+   "num": "13.0",
+   "topic": "Security Awareness & Training",
+   "questionText": "Does your organization provide role based security awareness training at least annually?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": "Does Regodit provide role‑based security awareness training at least annually? If so, supply the policy text and observed evidence (e.g., role‑specific training records).",
+   "conflict": null
+  },
+  {
+   "questionId": "q14",
+   "num": "14.0",
+   "topic": "Privacy",
+   "questionText": "Does your organization have privacy controls and or Data Privacy program in place?",
+   "status": "verified",
+   "value": "Regodit has a data privacy program as described in its SOC2 report.",
+   "confidence": 0.95,
+   "observedCheck": "none present",
+   "evidence": [
+    {
+     "docId": "regodit_ai_soc2_type_ii_report_test",
+     "docName": "Regodit AI_SOC2_Type_II_Report_Test",
+     "quote": "Data retention, disposal, and privacy procedures are governed by the data retention policy and DPAs.",
+     "evidenceType": "attested",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q15",
+   "num": "15.0",
+   "topic": "Privacy",
+   "questionText": "Will your personnel or your product require access to sensitive data (i.e PII, PI, PHI) to complete the engagement with Regodit?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q16",
+   "num": "16.0",
+   "topic": "Privacy",
+   "questionText": "Please provide a copy of your data retention schedule and secure disposal procedures",
+   "status": "partial",
+   "value": "Disposal is performed per offboarding checklist, but no retention schedule provided.",
+   "confidence": 0.9,
+   "observedCheck": "Observed disposal procedure noted in asset inventory.",
+   "evidence": [
+    {
+     "docId": "asset_inventory_regodit",
+     "docName": "Asset_Inventory_Regodit",
+     "quote": "SN-100240 | Laptop | Dell Latitude 5420 | m.delgado@regodit.net (contractor) | 02/01/2023 | Dell Technologies | Retired | 08/30/2026 | Wiped and decommissioned per offboarding checklist",
+     "evidenceType": "observed",
+     "date": "2026-08-30"
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": "Provide the data retention schedule.",
+   "conflict": null
+  },
+  {
+   "questionId": "q17",
+   "num": "17.0",
+   "topic": "Privacy",
+   "questionText": "Do you have a privacy policy in place? If so, please provide the attachment or URL.",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q18",
+   "num": "18.0",
+   "topic": "Privacy",
+   "questionText": "Does your organization ensure privacy requirements are extended to contractors and service providers through contractual agreements, and that roles and responsibilities concerning data privacy are clearly understood and documented?",
+   "status": "verified",
+   "value": "Contracts include access‑control and security obligations covering privacy requirements.",
+   "confidence": 0.95,
+   "observedCheck": "none present",
+   "evidence": [
+    {
+     "docId": "regodit_access_control_policy_v1_0",
+     "docName": "Regodit_access_control_policy_v1.0",
+     "quote": "Contracts include access-control and security obligations, and vendor access is included in the annual access review.",
+     "evidenceType": "attested",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q19",
+   "num": "19.0",
+   "topic": "Data Security",
+   "questionText": "Do you, or any third party you use to deliver services to Client XYZ, store sensitive information outside the United States? If so, where?",
+   "status": "conflict",
+   "value": "The documents contain contradictory statements about geographic restrictions for personal information: one says it must not be processed or maintained outside the United States, another says it must not be processed or maintained outside India.",
+   "confidence": 0.9,
+   "observedCheck": "none present",
+   "evidence": [
+    {
+     "docId": "master_services_agreement",
+     "docName": "Master Services Agreement",
+     "quote": "(iv) not process or maintain the PII outside the United States",
+     "evidenceType": "attested",
+     "date": null
+    },
+    {
+     "docId": "employment_contract_01",
+     "docName": "Employment Contract 01",
+     "quote": "(iv) not process or maintain the PI outside the India",
+     "evidenceType": "attested",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": "Can you clarify the intended geographic restriction for processing/storing personal information – United States or India?",
+   "conflict": {
+    "nature": "policy_vs_observed_exception",
+    "sources": [
+     {
+      "docId": "master_services_agreement",
+      "docName": "Master Services Agreement",
+      "quote": "(iv) not process or maintain the PII outside the United States",
+      "evidenceType": "attested",
+      "date": null
+     },
+     {
+      "docId": "employment_contract_01",
+      "docName": "Employment Contract 01",
+      "quote": "(iv) not process or maintain the PI outside the India",
+      "evidenceType": "attested",
+      "date": null
+     }
+    ],
+    "proposedQuestion": "Which geographic restriction is the correct policy for personal data storage and processing?"
+   }
+  },
+  {
+   "questionId": "q20",
+   "num": "20.0",
+   "topic": "Data Security",
+   "questionText": "Do you require data-at-rest encryption for sensitive data?",
+   "status": "verified",
+   "value": "Yes, Regodit requires encryption at rest for confidential and restricted data, using AES‑256 or AWS‑managed encryption keys.",
+   "confidence": 0.96,
+   "observedCheck": "none present",
+   "evidence": [
+    {
+     "docId": "regodit_ai_soc2_type_ii_report_test",
+     "docName": "Regodit AI_SOC2_Type_II_Report_Test",
+     "quote": "All data at rest is encrypted using AWS-managed encryption keys across RDS, Redshift, S3, and MSK.",
+     "evidenceType": "attested",
+     "date": null
+    },
+    {
+     "docId": "regodit_data_classification_policy_v1_0",
+     "docName": "Regodit_data_classification_policy_v1.0",
+     "quote": "Confidential and Restricted data is stored only in approved, access-controlled systems and is encrypted at rest using AES-256.",
+     "evidenceType": "attested",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q21",
+   "num": "21.0",
+   "topic": "Data Security",
+   "questionText": "Do you require data-in-transit encryption for sensitive data? If so, please describe the encryption protocols used.",
+   "status": "verified",
+   "value": "Yes. All data in transit is encrypted using TLS 1.3, with TLS 1.2 permitted where TLS 1.3 is not yet supported, as defined in the Cryptography Policy.",
+   "confidence": 0.96,
+   "observedCheck": "none present",
+   "evidence": [
+    {
+     "docId": "regodit_ai_soc2_type_ii_report_test",
+     "docName": "Regodit AI_SOC2_Type_II_Report_Test",
+     "quote": "All data in transit is encrypted using TLS 1.2 or higher.",
+     "evidenceType": "attested",
+     "date": null
+    },
+    {
+     "docId": "regodit_data_classification_policy_v1_0",
+     "docName": "Regodit_data_classification_policy_v1.0",
+     "quote": "Confidential and Restricted data is transmitted only over encrypted channels using TLS, as defined in the Cryptography Policy.",
+     "evidenceType": "attested",
+     "date": null
+    },
+    {
+     "docId": "regodit_cryptography_policy_v1_0",
+     "docName": "Regodit_cryptography_policy_v1.0",
+     "quote": "All data transmitted over public or internal networks is encrypted using TLS 1.3, with TLS 1.2 permitted only where a required system does not yet support TLS 1.3.",
+     "evidenceType": "attested",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q22",
+   "num": "22.0",
+   "topic": "Data Security",
+   "questionText": "Will Regodit data be stored on site, in a data center, or by a third party?",
+   "status": "verified",
+   "value": "Regodit stores data both on‑site (an on‑prem backup server located in the HQ server room) and in third‑party cloud services (AWS Production Console).",
+   "confidence": 0.94,
+   "observedCheck": "Observed records show both on‑site and third‑party storage locations.",
+   "evidence": [
+    {
+     "docId": "asset_inventory_regodit",
+     "docName": "Asset_Inventory_Regodit",
+     "quote": "SN-100239 | Server | Dell PowerEdge R740 (on-prem backup) | N/A - IT Infrastructure | 05/18/2022 | Dell Technologies | In Use |  | Located in HQ server room",
+     "evidenceType": "observed",
+     "date": "2026-08-30"
+    },
+    {
+     "docId": "access_review_records",
+     "docName": "Access_Review_Records",
+     "quote": "System name: AWS Production Console",
+     "evidenceType": "observed",
+     "date": "2026-09-04"
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q23",
+   "num": "23.0",
+   "topic": "Data Security",
+   "questionText": "Do you have data retention policies and procedures for the secure disposal of information?",
+   "status": "verified",
+   "value": "Yes. Secure disposal procedures are documented, e.g., retired laptops are wiped and decommissioned per the off‑boarding checklist.",
+   "confidence": 0.93,
+   "observedCheck": "Observed disposal action recorded for a retired laptop.",
+   "evidence": [
+    {
+     "docId": "asset_inventory_regodit",
+     "docName": "Asset_Inventory_Regodit",
+     "quote": "SN-100240 | Laptop | Dell Latitude 5420 | m.delgado@regodit.net (contractor) | 02/01/2023 | Dell Technologies | Retired | 08/30/2026 | Wiped and decommissioned per offboarding checklist",
+     "evidenceType": "observed",
+     "date": "2026-08-30"
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q24",
+   "num": "24.0",
+   "topic": "Data Security",
+   "questionText": "If providing a product or SaaS platform that will access, store, or process Client XYZ data, are you able to provide applicable data flow diagrams showing how Regodit's data will flow through the tool upon request?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": "Can Regodit provide data flow diagrams for the SaaS platform upon request?",
+   "conflict": null
+  },
+  {
+   "questionId": "q25",
+   "num": "25.0",
+   "topic": "Physical Security",
+   "questionText": "Is there a policy in place for physical security requirements for your business?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q26",
+   "num": "26.0",
+   "topic": "Physical Security",
+   "questionText": "Do you require physical access to any Client XYZ locations to complete your engagement?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q27",
+   "num": "27.0",
+   "topic": "Physical Security",
+   "questionText": "Are you willing to accept and acknowledge the expectations outlined in Client XYZ's Visitor Management document?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q28",
+   "num": "28.0",
+   "topic": "Physical Security",
+   "questionText": "Does your organization have procedures in place to track assets that are brought onto Client XYZ sites?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q29",
+   "num": "29.0",
+   "topic": "Physical Security",
+   "questionText": "Can you provide your organization's data protection policy, including evidence of physical safeguards for devices used onsite if requested?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q30",
+   "num": "30.0",
+   "topic": "Web Application Security",
+   "questionText": "Will Client XYZ be using a web application provided by you?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q31",
+   "num": "31.0",
+   "topic": "Web Application Security",
+   "questionText": "What is the name of your web application?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q32",
+   "num": "32.0",
+   "topic": "Web Application Security",
+   "questionText": "What is the function/purpose of your web application?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q33",
+   "num": "33.0",
+   "topic": "Web Application Security",
+   "questionText": "How do you report application security vulnerabilities?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q34",
+   "num": "34.0",
+   "topic": "Web Application Security",
+   "questionText": "Does your web application have an SSL/TLS certificate?",
+   "status": "partial",
+   "value": "The Information Security Policy states that data in transit is protected using TLS.",
+   "confidence": 0.7,
+   "observedCheck": "none present",
+   "evidence": [
+    {
+     "docId": "regodit_information_security_policy_v1_0",
+     "docName": "Regodit_information_security_policy_v1.0",
+     "quote": "Sensitive data is encrypted at rest using AES-256 and in transit using TLS.",
+     "evidenceType": "attested",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": "Can you provide observed evidence that the web application presents a valid SSL/TLS certificate?",
+   "conflict": null
+  },
+  {
+   "questionId": "q35",
+   "num": "35.0",
+   "topic": "Web Application Security",
+   "questionText": "Does your application offer single sign-on (SSO) or are there plans to implement/offer SSO in the near future? If plans to implement in near future, include an implementation date in your justification.",
+   "status": "verified",
+   "value": "Yes, authentication is centralized through a single sign-on identity provider protected by multi-factor authentication.",
+   "confidence": 0.8,
+   "observedCheck": "none present",
+   "evidence": [
+    {
+     "docId": "regodit_password_and_secrets_policy_v1_0",
+     "docName": "Regodit_password_and_secrets_policy_v1.0",
+     "quote": "The policy is proportionate to a small, cloud-native, remote-first team in which most authentication is centralized through a single sign-on identity provider protected by multi-factor authentication.",
+     "evidenceType": "attested",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q36",
+   "num": "36.0",
+   "topic": "Secure Coding",
+   "questionText": "Do you have policies, procedures or standards in place for secure development practices?",
+   "status": "verified",
+   "value": "Regodit has a Secure Development Lifecycle Document stating developers are expected to adhere to coding standards throughout the development cycle, including security.",
+   "confidence": 0.95,
+   "observedCheck": "none present",
+   "evidence": [
+    {
+     "docId": "secure_development_lifecycle_document_01",
+     "docName": "Secure Development Lifecycle Document 01",
+     "quote": "Software developers are expected to adhere to <Company Name>’s coding standards throughout the development cycle, including standards for quality, commenting, and security.",
+     "evidenceType": "attested",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q37",
+   "num": "37.0",
+   "topic": "Secure Coding",
+   "questionText": "Do you utilize Secure Coding Principles - (Detailed logging, encrypted credentials, etc.)?",
+   "status": "conflict",
+   "value": "Regodit’s policies state that passwords are never stored in plaintext and credentials are transmitted only over encrypted channels, and that application logs are rotated and shipped to storage, but observed VAPT findings indicate possible violations of secure coding practices.",
+   "confidence": 0.85,
+   "observedCheck": "VAPT report notes that detailed internal errors returned to users may violate secure coding best practices and recommends enabling detailed monitoring and logging and redacting sensitive data from logs.",
+   "evidence": [
+    {
+     "docId": "regodit_password_and_secrets_policy_v1_0",
+     "docName": "Regodit_password_and_secrets_policy_v1.0",
+     "quote": "Passwords are never stored in plaintext. Where the company controls credential storage, passwords are hashed and salted using a strong algorithm such as bcrypt, scrypt, Argon2, or PBKDF2. Credentials are transmitted only over encrypted channels using TLS. Users must not store passwords in plaintext files or in unmanaged browser stores.",
+     "evidenceType": "attested",
+     "date": null
+    },
+    {
+     "docId": "regodit_information_security_policy_v1_0",
+     "docName": "Regodit_information_security_policy_v1.0",
+     "quote": "Application logs are rotated on the host and shipped to object storage for retention.",
+     "evidenceType": "attested",
+     "date": null
+    },
+    {
+     "docId": "vapt_report_01",
+     "docName": "VAPT Report 01",
+     "quote": "Compliance / Reputation: Detailed internal errors returned to users may violate secure coding best practices and increase regulatory/compliance risk.",
+     "evidenceType": "observed",
+     "date": null
+    },
+    {
+     "docId": "vapt_report_01",
+     "docName": "VAPT Report 01",
+     "quote": "Enable detailed monitoring and logging for anomaly detection.",
+     "evidenceType": "observed",
+     "date": null
+    },
+    {
+     "docId": "vapt_report_01",
+     "docName": "VAPT Report 01",
+     "quote": "Redact any sensitive data from logs (PII, credentials) before storage.",
+     "evidenceType": "observed",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": "Can you provide concrete evidence (e.g., logging configuration screenshots, encryption implementation details, or recent secure code review results) that detailed logging and encrypted credential handling are actively enforced in production?",
+   "conflict": {
+    "nature": "policy_vs_observed_exception",
+    "sources": [
+     {
+      "docId": "regodit_password_and_secrets_policy_v1_0",
+      "docName": "Regodit_password_and_secrets_policy_v1.0",
+      "quote": "Passwords are never stored in plaintext. Where the company controls credential storage, passwords are hashed and salted using a strong algorithm such as bcrypt, scrypt, Argon2, or PBKDF2. Credentials are transmitted only over encrypted channels using TLS. Users must not store passwords in plaintext files or in unmanaged browser stores.",
+      "evidenceType": "attested",
+      "date": null
+     },
+     {
+      "docId": "vapt_report_01",
+      "docName": "VAPT Report 01",
+      "quote": "Compliance / Reputation: Detailed internal errors returned to users may violate secure coding best practices and increase regulatory/compliance risk.",
+      "evidenceType": "observed",
+      "date": null
+     }
+    ],
+    "proposedQuestion": "What remediation steps have been taken to address the VAPT findings regarding internal error messages and logging, and can you provide evidence that these steps are now in place?"
+   }
+  },
+  {
+   "questionId": "q38",
+   "num": "38.0",
+   "topic": "Vulnerability Management",
+   "questionText": "Are internal vulnerability scans performed?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": "Provide evidence that internal vulnerability scans are performed (e.g., scan reports, schedule).",
+   "conflict": null
+  },
+  {
+   "questionId": "q39",
+   "num": "39.0",
+   "topic": "Vulnerability Management",
+   "questionText": "On what cadence are vulnerability scans performed?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": "Specify the cadence (frequency) at which internal vulnerability scans are performed.",
+   "conflict": null
+  },
+  {
+   "questionId": "q40",
+   "num": "40.0",
+   "topic": "Vulnerability Management",
+   "questionText": "What are the documented remediation timelines for critical and high patches?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": "Provide the documented remediation timelines for critical and high severity patches.",
+   "conflict": null
+  },
+  {
+   "questionId": "q41",
+   "num": "41.0",
+   "topic": "Business Continuity & Disaster Recovery",
+   "questionText": "What is the process for disaster recovery and backups?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q42",
+   "num": "42.0",
+   "topic": "Business Continuity & Disaster Recovery",
+   "questionText": "Please provide a copy of your BC/DR policy for review.",
+   "status": "partial",
+   "value": "The Business Continuity and Disaster Recovery Policy includes: 'The 35-day database backup window is a recovery window, not a records retention period. It governs how far back the company can restore an operational database, and is distinct from the retention of records and logs described in the Data Classification Policy, which is met through object storage and other retained records rather than through database backups.'",
+   "confidence": 0.9,
+   "observedCheck": "none present",
+   "evidence": [
+    {
+     "docId": "regodit_business_continuity_and_disaster_recovery_policy_v1_0",
+     "docName": "Regodit_business_continuity_and_disaster_recovery_policy_v1.0",
+     "quote": "The 35-day database backup window is a recovery window, not a records retention period. It governs how far back the company can restore an operational database, and is distinct from the retention of records and logs described in the Data Classification Policy, which is met through object storage and other retained records rather than through database backups.",
+     "evidenceType": "attested",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": "Please provide the complete Business Continuity and Disaster Recovery policy document.",
+   "conflict": null
+  },
+  {
+   "questionId": "q43",
+   "num": "43.0",
+   "topic": "Incident Response",
+   "questionText": "Do you keep a record of security events?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q44",
+   "num": "44.0",
+   "topic": "Incident Response",
+   "questionText": "Do you monitor the security of your wireless networks?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q45",
+   "num": "45.0",
+   "topic": "Incident Response",
+   "questionText": "Do you have an incident response plan in place? If yes, describe briefly.",
+   "status": "partial",
+   "value": "Regodit has an incident response plan as referenced in a SOC 2 report.",
+   "confidence": 0.9,
+   "observedCheck": "none present",
+   "evidence": [
+    {
+     "docId": "regodit_ai_soc2_type_ii_report_test",
+     "docName": "Regodit AI_SOC2_Type_II_Report_Test",
+     "quote": "We obtained DPA documentation and the incident response plan.",
+     "evidenceType": "attested",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": "What are the key components and scope of the incident response plan?",
+   "conflict": null
+  },
+  {
+   "questionId": "q46",
+   "num": "46.0",
+   "topic": "Incident Response",
+   "questionText": "How often is your Incident Response Plan Tested?(Drop Down)",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q47",
+   "num": "47.0",
+   "topic": "Incident Response",
+   "questionText": "Do you have a policy requiring prompt notice to third parties regarding information security events affecting your organization?",
+   "status": "partial",
+   "value": "Regodit’s vendor risk management policy references prompt incident notice to third parties.",
+   "confidence": 0.9,
+   "observedCheck": "none present",
+   "evidence": [
+    {
+     "docId": "regodit_vendor_risk_management_policy",
+     "docName": "Regodit_Vendor_Risk_Management_Policy",
+     "quote": "prompt security and privacy incident notice, cooperation, and relevant investigation information;",
+     "evidenceType": "attested",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": "Where is the formal policy requiring third‑party notice documented and how is it enforced?",
+   "conflict": null
+  },
+  {
+   "questionId": "q48",
+   "num": "48.0",
+   "topic": "Incident Response",
+   "questionText": "Regardless of materiality, have you had a security event in the last 5 years?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q49",
+   "num": "49.0",
+   "topic": "Incident Response",
+   "questionText": "Do you outsource security functions to third-party providers?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q50",
+   "num": "50.0",
+   "topic": "Network & Endpoint Security",
+   "questionText": "Do you use anti virus software to protect your devices? If yes, describe.",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q51",
+   "num": "51.0",
+   "topic": "Network & Endpoint Security",
+   "questionText": "Will your organization be accessing Client XYZ's network?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q52",
+   "num": "52.0",
+   "topic": "Network & Endpoint Security",
+   "questionText": "(blank in source workbook)",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q53",
+   "num": "53.0",
+   "topic": "Network & Endpoint Security",
+   "questionText": "Please list out all authorized personnel, including first and last names and e-mail addresses from your organization that will have access to Client XYZ's assets or network.",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q54",
+   "num": "54.0",
+   "topic": "Network & Endpoint Security",
+   "questionText": "Please submit a network architecture diagram and details of your endpoint protection measures, including how your organization complies with firewall and DNS security standards when accessing XYZ's networks.",
+   "status": "partial",
+   "value": "Regodit uses OS native malware protection and firewall, and operates a Cisco Meraki MX67 firewall; no network diagram or DNS security details were provided.",
+   "confidence": 0.85,
+   "observedCheck": "Observed a Cisco Meraki MX67 firewall in the asset inventory and an attested policy stating use of OS native malware protection and firewall.",
+   "evidence": [
+    {
+     "docId": "asset_inventory_regodit",
+     "docName": "Asset_Inventory_Regodit",
+     "quote": "SN-100242 | Networking Equipment | Cisco Meraki MX67 Firewall | N/A - IT Infrastructure | 04/05/2023 | Cisco Meraki | In Use |  | Primary office firewall/router",
+     "evidenceType": "observed",
+     "date": "2026-08-30"
+    },
+    {
+     "docId": "regodit_asset_management_policy_v1_0",
+     "docName": "Regodit_asset_management_policy_v1.0",
+     "quote": "must use the operating system’s native malware protection and firewall",
+     "evidenceType": "attested",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": "Please provide a network architecture diagram and details of DNS security controls used when accessing XYZ's networks.",
+   "conflict": null
+  },
+  {
+   "questionId": "q55",
+   "num": "55.0",
+   "topic": "Asset Management",
+   "questionText": "Do you keep an inventory of information technology (IT) assets and software?",
+   "status": "verified",
+   "value": "Yes, Regodit maintains an IT asset inventory.",
+   "confidence": 0.99,
+   "observedCheck": "Asset inventory sheet lists assets with details, showing an inventory is maintained.",
+   "evidence": [
+    {
+     "docId": "asset_inventory_regodit",
+     "docName": "Asset_Inventory_Regodit",
+     "quote": "SN-100234 | Laptop | Dell Latitude 5440, 16GB RAM | j.martinez@regodit.net | 01/15/2024 | Dell Technologies | In Use |  | Assigned to Engineering team",
+     "evidenceType": "observed",
+     "date": "2026-08-30"
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q56",
+   "num": "56.0",
+   "topic": "Asset Management",
+   "questionText": "Does your organization have identity and access controls in place?",
+   "status": "conflict",
+   "value": null,
+   "confidence": 0.9,
+   "observedCheck": "Access review records show a periodic review process, but the VAPT report finds the application lacks authentication mechanisms.",
+   "evidence": [
+    {
+     "docId": "access_review_records",
+     "docName": "Access_Review_Records",
+     "quote": "Perform the following steps to complete access review:",
+     "evidenceType": "observed",
+     "date": "2026-09-04"
+    },
+    {
+     "docId": "vapt_report_01",
+     "docName": "VAPT Report 01",
+     "quote": "The application lacks authentication mechanisms across its endpoints and functionality.",
+     "evidenceType": "observed",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": {
+    "nature": "policy_vs_observed_exception",
+    "sources": [
+     {
+      "docId": "vapt_report_01",
+      "docName": "VAPT Report 01",
+      "quote": "The application lacks authentication mechanisms across its endpoints and functionality.",
+      "evidenceType": "observed",
+      "date": null
+     },
+     {
+      "docId": "regodit_information_security_policy_v1_0",
+      "docName": "Regodit_information_security_policy_v1.0",
+      "quote": "Multi-factor authentication is required across all core systems, including cloud infrastructure consoles, the identity and email provider, and the source-code platform.",
+      "evidenceType": "attested",
+      "date": null
+     }
+    ],
+    "proposedQuestion": "Can you provide evidence that authentication mechanisms, such as MFA, have been implemented to remediate the VAPT finding?"
+   }
+  },
+  {
+   "questionId": "q57",
+   "num": "57.0",
+   "topic": "Asset Management",
+   "questionText": "Does your organization leverage role-based access control?",
+   "status": "verified",
+   "value": "Yes, Regodit uses role‑based access control.",
+   "confidence": 0.98,
+   "observedCheck": "Access review records include a 'Role Assigned' column indicating role‑based assignments.",
+   "evidence": [
+    {
+     "docId": "access_review_records",
+     "docName": "Access_Review_Records",
+     "quote": "User Name | Email | Department (If applicable) | Role Assigned | Last Login (MM-DD-YY) | Access Justified (Y/N) | Action needed | Revised Role",
+     "evidenceType": "observed",
+     "date": "2026-09-04"
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q58",
+   "num": "58.0",
+   "topic": "Asset Management",
+   "questionText": "Do you limit and periodically review user access privileges and controls?",
+   "status": "verified",
+   "value": "Yes, user access privileges are limited and reviewed periodically.",
+   "confidence": 0.98,
+   "observedCheck": "Access review records document a completed review with date, reviewer, and justification, demonstrating periodic review of user access privileges.",
+   "evidence": [
+    {
+     "docId": "access_review_records",
+     "docName": "Access_Review_Records",
+     "quote": "Date of Review | 09-04-26",
+     "evidenceType": "observed",
+     "date": "2026-09-04"
+    },
+    {
+     "docId": "access_review_records",
+     "docName": "Access_Review_Records",
+     "quote": "Access Justified | Action needed | Revised Role",
+     "evidenceType": "observed",
+     "date": "2026-09-04"
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q59",
+   "num": "59.0",
+   "topic": "Asset Management",
+   "questionText": "What is the cadence of your access reviews?(Drop Down)",
+   "status": "partial",
+   "value": "At least annually.",
+   "confidence": 0.85,
+   "observedCheck": "none present",
+   "evidence": [
+    {
+     "docId": "regodit_ai_soc2_type_ii_report_test",
+     "docName": "Regodit AI_SOC2_Type_II_Report_Test",
+     "quote": "User access rights are reviewed on at least an annual basis.",
+     "evidenceType": "attested",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": "What is the exact frequency (e.g., quarterly, annually) and schedule of access reviews?",
+   "conflict": null
+  },
+  {
+   "questionId": "q60",
+   "num": "60.0",
+   "topic": "Asset Management",
+   "questionText": "Does your organization require replay-resistant authentication mechanisms such as OTP or MFA?",
+   "status": "conflict",
+   "value": null,
+   "confidence": 0.9,
+   "observedCheck": "VAPT report indicates the application lacks authentication mechanisms; no observed evidence of MFA deployment is present.",
+   "evidence": [
+    {
+     "docId": "vapt_report_01",
+     "docName": "VAPT Report 01",
+     "quote": "The application lacks authentication mechanisms across its endpoints and functionality.",
+     "evidenceType": "observed",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": {
+    "nature": "policy_vs_observed_exception",
+    "sources": [
+     {
+      "docId": "vapt_report_01",
+      "docName": "VAPT Report 01",
+      "quote": "The application lacks authentication mechanisms across its endpoints and functionality.",
+      "evidenceType": "observed",
+      "date": null
+     },
+     {
+      "docId": "regodit_information_security_policy_v1_0",
+      "docName": "Regodit_information_security_policy_v1.0",
+      "quote": "Multi-factor authentication is required across all core systems, including cloud infrastructure consoles, the identity and email provider, and the source-code platform.",
+      "evidenceType": "attested",
+      "date": null
+     }
+    ],
+    "proposedQuestion": "Has multi‑factor authentication been deployed for the application identified in the VAPT report, and can you provide evidence of its operation?"
+   }
+  },
+  {
+   "questionId": "q61",
+   "num": "61.0",
+   "topic": "Asset Management",
+   "questionText": "Are the external authenticators in use, NIST compliant?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": null
+  },
+  {
+   "questionId": "q62",
+   "num": "62.0",
+   "topic": "Asset Management",
+   "questionText": "Does your organization enforce the principle of least privilege?",
+   "status": "conflict",
+   "value": null,
+   "confidence": 0.9,
+   "observedCheck": "VAPT report states the application violates the principle of least privilege.",
+   "evidence": [
+    {
+     "docId": "vapt_report_01",
+     "docName": "VAPT Report 01",
+     "quote": "The application lacks authentication mechanisms across its endpoints and functionality.",
+     "evidenceType": "observed",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": null,
+   "conflict": {
+    "nature": "policy_vs_observed_exception",
+    "sources": [
+     {
+      "docId": "vapt_report_01",
+      "docName": "VAPT Report 01",
+      "quote": "The application lacks authentication mechanisms across its endpoints and functionality.",
+      "evidenceType": "observed",
+      "date": null
+     },
+     {
+      "docId": "regodit_ai_soc2_type_ii_report_test",
+      "docName": "Regodit AI_SOC2_Type_II_Report_Test",
+      "quote": "Regodit provisions access to infrastructure and production systems through AWS IAM, applying a role-based, least-privilege access model.",
+      "evidenceType": "attested",
+      "date": null
+     }
+    ],
+    "proposedQuestion": "Can you provide evidence that least‑privilege controls have been applied to the application referenced in the VAPT report?"
+   }
+  },
+  {
+   "questionId": "q63",
+   "num": "63.0",
+   "topic": "Risk Assessment",
+   "questionText": "Do you conduct information security risk assessments at least annually?",
+   "status": "partial",
+   "value": "The Information Security Policy states a risk assessment is conducted at least annually.",
+   "confidence": 0.9,
+   "observedCheck": "none present",
+   "evidence": [
+    {
+     "docId": "regodit_information_security_policy_v1_0",
+     "docName": "Regodit_information_security_policy_v1.0",
+     "quote": "A risk assessment is conducted at least annually, led by the acting CISO, and is supplemented by third-party vulnerability assessment and penetration testing.",
+     "evidenceType": "attested",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": "Can you provide evidence of the most recent risk assessment (date, scope, participants)?",
+   "conflict": null
+  },
+  {
+   "questionId": "q64",
+   "num": "64.0",
+   "topic": "Risk Assessment",
+   "questionText": "How do you prioritize critical assets for your organization?",
+   "status": "partial",
+   "value": "The Asset Management Policy requires inventory records to identify asset criticality, but does not describe the prioritization process.",
+   "confidence": 0.85,
+   "observedCheck": "none present",
+   "evidence": [
+    {
+     "docId": "regodit_asset_management_policy_v1_0",
+     "docName": "Regodit_asset_management_policy_v1.0",
+     "quote": "Inventory records identify the asset, its owner or assigned holder, and its criticality.",
+     "evidenceType": "attested",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": "What criteria or process does Regodit use to prioritize critical assets?",
+   "conflict": null
+  },
+  {
+   "questionId": "q65",
+   "num": "65.0",
+   "topic": "Risk Assessment",
+   "questionText": "Does your organization conduct penetration testing at least annually?",
+   "status": "partial",
+   "value": "A penetration test was performed (see VAPT Report 01), however the frequency is not documented.",
+   "confidence": 0.8,
+   "observedCheck": "VAPT Report 01 provides findings from a penetration test, but does not indicate the test date or that testing occurs annually.",
+   "evidence": [
+    {
+     "docId": "vapt_report_01",
+     "docName": "VAPT Report 01",
+     "quote": "Security Implications: The use of weak cipher suites undermines the security posture of the SSL/TLS endpoint, rendering it susceptible to a variety of attacks that compromise the confidentiality, integrity, and authenticity of transmitted data.",
+     "evidenceType": "observed",
+     "date": null
+    }
+   ],
+   "rejectedEvidence": [],
+   "followUpQuestion": "Can you provide the date of the most recent penetration test to confirm an annual cadence?",
+   "conflict": null
+  },
+  {
+   "questionId": "q66",
+   "num": "66.0",
+   "topic": "Risk Assessment",
+   "questionText": "Have the findings from the most recent penetration test been remediated?",
+   "status": "unknown",
+   "value": null,
+   "confidence": 0,
+   "observedCheck": "none present",
+   "evidence": [],
+   "rejectedEvidence": [],
+   "followUpQuestion": "Can you provide remediation status or tickets for the findings from the latest penetration test?",
+   "conflict": null
+  }
+ ]
+}
