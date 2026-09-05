@@ -39,24 +39,18 @@ function Row({ a, onPick }) {
             </span>
           )}
         </span>
-        {isConflict && (
+        {isConflict ? (
           <span className="mono shrink-0 bg-[var(--red-deep)] px-1.5 py-[2px] text-[9px] font-bold tracking-widest text-white">
             CONFLICT
           </span>
-        )}
-        {!isConflict && a.confidence > 0 && (
+        ) : srcCount > 0 ? (
           <span
             className="mono shrink-0 text-[9px] tracking-wider text-[var(--dim)]"
-            title={`confidence ${Math.round(a.confidence * 100)}%`}
+            title={`${srcCount} citation${srcCount === 1 ? '' : 's'} · confidence ${Math.round(a.confidence * 100)}%`}
           >
-            {Math.round(a.confidence * 100)}%
+            {srcCount} SRC
           </span>
-        )}
-        {srcCount > 0 && (
-          <span className="mono shrink-0 border border-[var(--line)] px-1.5 py-[2px] text-[9px] tracking-wider text-[var(--muted)]">
-            {String(srcCount).padStart(2, '0')} SRC
-          </span>
-        )}
+        ) : null}
       </button>
 
       {open && (

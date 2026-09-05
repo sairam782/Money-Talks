@@ -19,11 +19,11 @@ function coverageOf(profile) {
 
 function Stat({ n, label, color }) {
   return (
-    <div className="border-l-2 pl-3" style={{ borderColor: color ?? 'var(--line)' }}>
-      <div className="text-[26px] font-bold leading-none tracking-tight" style={{ color: color ?? 'var(--ink)' }}>
+    <div className="flex items-baseline gap-1.5">
+      <span className="text-[15px] font-bold leading-none tabular-nums" style={{ color: color ?? 'var(--ink)' }}>
         {n}
-      </div>
-      <div className="label mt-1.5">{label}</div>
+      </span>
+      <span className="label">{label}</span>
     </div>
   );
 }
@@ -103,73 +103,46 @@ export default function Home() {
   }
 
   const all = Object.values(profile.answers);
-  const s = coverage.states;
+  const s_ = coverage.states;
 
   return (
     <main className="flex h-screen flex-col">
-      {/* status strip */}
-      <div className="flex items-center gap-3 border-b border-[var(--line)] bg-[#0a0a0e] px-4 py-1.5">
-        <span className="live-dot h-[6px] w-[6px] rounded-full bg-[var(--red)]" />
-        <span className="mono text-[10px] font-semibold tracking-[.16em] text-[var(--red)]">LIVE ANALYSIS</span>
-        <span className="mono text-[10px] tracking-wider text-[var(--dim)]">
-          run.{String(profile.runId ?? 'local').replace('run_', '').slice(-8)} · 21 sources ingested · {all.length} controls assessed
-        </span>
-      </div>
+      {/* one header. identity, state, actions. nothing else. */}
+      <header className="border-b border-[var(--line)] bg-[var(--panel)] px-5 py-3">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
+          <div className="grid h-7 w-7 shrink-0 place-items-center bg-[var(--red-deep)] text-[13px] font-black text-white">
+            X
+          </div>
+          <div className="min-w-0">
+            <div className="text-[14px] font-bold leading-none tracking-tight">CROSS AI</div>
+            <div className="label mt-1 truncate">regodit · vendor security questionnaire</div>
+          </div>
 
-      {/* header */}
-      <header className="border-b border-[var(--line)] bg-[var(--panel)] px-4 py-3">
-        <div className="flex flex-wrap items-center gap-4">
-          <div className="flex items-center gap-2.5">
-            <div className="grid h-8 w-8 place-items-center bg-[var(--red-deep)] text-[15px] font-black text-white">X</div>
-            <div>
-              <div className="text-[15px] font-bold leading-none tracking-tight">CROSS AI</div>
-              <div className="label mt-1">ai security analyst</div>
+          <div className="ml-auto flex items-center gap-5">
+            <div className="hidden items-center gap-5 sm:flex">
+              <Stat n={s_.verified ?? 0} label="verified" color="var(--green)" />
+              <Stat n={s_.conflict ?? 0} label="conflicts" color="var(--red)" />
+              <Stat n={s_.unknown ?? 0} label="gaps" color="var(--amber)" />
             </div>
-          </div>
-          <div className="hidden border-l border-[var(--line)] pl-4 md:block">
-            <div className="mono text-[11px] tracking-wider text-[var(--ink)]">
-              REGODIT · VENDOR SECURITY QUESTIONNAIRE
-            </div>
-            <div className="mono mt-1 text-[10px] tracking-wider text-[var(--dim)]">
-              answered.from.source.documents · zero.hallucination
-            </div>
-          </div>
-          <div className="ml-auto flex items-center gap-2">
             <a
               href="/questionnaire"
-              className="mono bg-[var(--red-deep)] px-3.5 py-2 text-[10px] font-bold tracking-widest text-white hover:bg-[#b91c1c]"
+              className="mono bg-[var(--red-deep)] px-3 py-1.5 text-[10px] font-bold tracking-widest text-white hover:bg-[#b91c1c]"
             >
-              GENERATE QUESTIONNAIRE ▸
+              GENERATE ▸
             </a>
             <button
               onClick={() => { localStorage.removeItem(STORAGE_KEY); location.reload(); }}
-              className="mono border border-[var(--line)] px-3 py-2 text-[10px] font-semibold tracking-widest text-[var(--muted)] hover:text-[var(--ink)]"
+              className="mono text-[10px] tracking-widest text-[var(--dim)] hover:text-[var(--ink)]"
             >
               RESET
             </button>
           </div>
         </div>
+
         <div className="mt-3">
           <CoverageBar coverage={coverage} />
         </div>
       </header>
-
-      {/* hero */}
-      <section className="border-b border-[var(--line)] px-6 py-6">
-        <div className="label mb-3 text-[var(--red)]">// problem statement</div>
-        <h1 className="max-w-4xl text-[26px] font-bold leading-[1.25] tracking-tight md:text-[30px]">
-          Every enterprise deal dies in a security questionnaire.{' '}
-          <span className="text-[var(--red)]">Cross AI never guesses.</span>{' '}
-          It reads your documents, cites the quote, and flags the contradiction.
-        </h1>
-        <div className="mt-6 flex flex-wrap gap-x-10 gap-y-4">
-          <Stat n="21" label="docs.read" />
-          <Stat n={all.length} label="questions" />
-          <Stat n={s.verified ?? 0} label="verified" color="var(--green)" />
-          <Stat n={s.conflict ?? 0} label="conflicts.caught" color="var(--red)" />
-          <Stat n={s.unknown ?? 0} label="honest.gaps" color="var(--amber)" />
-        </div>
-      </section>
 
       {/* work area */}
       <div className="flex min-h-0 flex-1">

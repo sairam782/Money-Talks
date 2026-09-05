@@ -21,17 +21,17 @@ export default function CoverageBar({ coverage }) {
           ) : null
         )}
       </div>
-      <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
-        {STATES.map(({ key, label, color, help }) => (
-          <span key={key} className="mono flex items-center gap-1.5 text-[10px] tracking-wider" title={help}>
-            <span className="h-[7px] w-[7px]" style={{ background: color }} />
-            <span className="font-semibold" style={{ color }}>{states[key] ?? 0}</span>
-            <span className="uppercase text-[var(--muted)]">{label}</span>
-          </span>
-        ))}
-        <span className="mono ml-auto text-[10px] tracking-wider text-[var(--dim)]">
-          <span className="text-[var(--muted)]">EVIDENCE</span>{'  '}
-          {evidence.observed ?? 0} OBSERVED · {evidence.attested ?? 0} ATTESTED · {evidence.asserted ?? 0} ASSERTED
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+        {STATES.map(({ key, label, color, help }) =>
+          states[key] ? (
+            <span key={key} className="mono flex items-center gap-1.5 text-[9px] tracking-wider" title={help}>
+              <span className="h-[6px] w-[6px]" style={{ background: color }} />
+              <span className="uppercase text-[var(--dim)]">{label}</span>
+            </span>
+          ) : null
+        )}
+        <span className="mono ml-auto text-[9px] tracking-wider text-[var(--dim)]">
+          {evidence.observed ?? 0} observed · {evidence.attested ?? 0} attested · {evidence.asserted ?? 0} asserted
         </span>
       </div>
     </div>

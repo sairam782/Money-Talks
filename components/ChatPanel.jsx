@@ -19,15 +19,12 @@ export default function ChatPanel({ messages, onSend, pending, target }) {
       <div className="flex items-center gap-2 border-b border-[var(--line)] px-4 py-2">
         <span className="live-dot h-[6px] w-[6px] rounded-full bg-[var(--green)]" />
         <span className="label">secure_channel</span>
-        <span className="mono ml-auto text-[9px] tracking-wider text-[var(--dim)]">encrypted · audited</span>
+        
       </div>
 
       <div className="scan flex-1 space-y-4 overflow-y-auto p-4">
         {messages.map((m, i) => (
           <div key={i}>
-            <div className={`label mb-1 ${m.role === 'user' ? 'text-right' : ''}`}>
-              {m.role === 'user' ? 'you' : 'cross ai'}
-            </div>
             <div className={m.role === 'user' ? 'flex justify-end' : ''}>
               <div
                 className={`max-w-[88%] whitespace-pre-wrap px-3 py-2 text-[13px] leading-relaxed ${
@@ -43,7 +40,6 @@ export default function ChatPanel({ messages, onSend, pending, target }) {
         ))}
         {pending && (
           <div>
-            <div className="label mb-1">cross ai</div>
             <div className="relative inline-block overflow-hidden border border-[var(--line)] bg-[var(--panel-2)] px-3 py-2">
               <span className="mono text-[11px] tracking-widest text-[var(--muted)]">ANALYSING…</span>
               <span className="sweep pointer-events-none absolute inset-0" />
