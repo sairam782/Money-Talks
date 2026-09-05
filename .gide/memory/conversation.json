@@ -1,0 +1,16 @@
+{
+  "goals": [],
+  "decisions": [
+    "instead of complex anchored edits."
+  ],
+  "preferences": [
+    "Do NOT retry the same command.",
+    "Do NOT invent new tasks — the only work is what the user originally asked for.",
+    "don't know rather than guessing.",
+    "Do NOT retry find_file with the same query — it will not succeed.",
+    "Never guess."
+  ],
+  "files": [],
+  "updatedAt": 1788624050913,
+  "sessions": 3
+}

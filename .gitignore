@@ -1,0 +1,55 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# ─── Regodit's confidential material — NEVER commit ────────────────────
+# Money-Talks is a public repo. These hold a live pentest report, a SOC 2,
+# access records with real staff and admin rights, a W-9, and real email
+# addresses. The derived copies under data/ carry exactly the same content.
+1. Sample_Vendor questionnaire/
+2. Company policies/
+3. Security Assessment Reports/
+4. Contracts_agreements/
+5. Infrastructure_internal info/
+data/
+
+# Internal demo script — quotes the corpus (named individual, VAPT findings)
+PLAN.md

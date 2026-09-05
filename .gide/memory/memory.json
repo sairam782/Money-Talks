@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "profile": null,
+  "tasks": [
+    {
+      "prompt": "chekc the .md in the folder and lets plan it step by step ?",
+      "did": "read ARCHITECTURE.md",
+      "files": [],
+      "ts": 1788623481927
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "lessons": [
+    {
+      "id": "l_mtok8nd4",
+      "pattern": "multiple_loops",
+      "lesson": "Task took 5 loops. For simple edits, use write_to_file (full rewrite) instead of complex anchored edits.",
+      "frequency": 1,
+      "lastSeen": 1788623481928
+    },
+    {
+      "id": "l_mtok8nd4",
+      "pattern": "tool_not_found",
+      "lesson": "Tool \"find_file\" not found. Use only: read_file, write_to_file, replace_file_content, list_dir, glob_files, grep_files, lookup, read_page.",
+      "frequency": 1,
+      "lastSeen": 1788623481928
+    }
+  ],
+  "skills": [],
+  "metrics": {
+    "totalTasks": 3,
+    "successfulTasks": 3,
+    "avgLoopsPerTask": 2.7,
+    "totalSkillsUsed": 0
+  }
+}
