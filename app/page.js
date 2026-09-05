@@ -167,6 +167,7 @@ export default function Home() {
             pending={pending}
             target={target}
             onClearTarget={() => setTargetId(null)}
+            runId={profile.runId}
           />
         </section>
         <section className="flex min-w-0 flex-1 flex-col bg-[var(--bg)]">

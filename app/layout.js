@@ -12,9 +12,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "AI Security Analyst — Regodit",
+  title: "Cross AI",
   description:
     "Completes a vendor security questionnaire from the company's own documents, and shows where those documents contradict each other.",
+  applicationName: "Cross AI",
+  icons: { icon: "/icon.svg" },
 };
 
 export default function RootLayout({ children }) {

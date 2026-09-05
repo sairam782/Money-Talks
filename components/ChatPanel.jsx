@@ -1,15 +1,49 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import EvidenceChip from './EvidenceChip';
+import { useVoice } from './useVoice';
 
-export default function ChatPanel({ messages, onSend, pending, target, onClearTarget }) {
+export default function ChatPanel({ messages, onSend, pending, target, onClearTarget, runId }) {
   const [text, setText] = useState('');
+  const [autoSpeak, setAutoSpeak] = useState(false);
   const endRef = useRef(null);
+  const inputRef = useRef(null);
+  const spokenRef = useRef(-1);
+  const voice = useVoice({ runId });
   // Block body on purpose: a concise arrow returns the call's value, and React
   // reads anything an effect returns as a cleanup function.
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, pending]);
+
+  // Speak the newest reply when the toggle is on. Tracking the index we last
+  // spoke stops a re-render from starting the same sentence twice, and browsers
+  // only allow this at all because switching the toggle on was a user gesture.
+  useEffect(() => {
+    if (!autoSpeak) return;
+    const i = messages.length - 1;
+    const last = messages[i];
+    if (!last || last.role !== 'assistant' || spokenRef.current >= i) return;
+    spokenRef.current = i;
+    voice.play(last.text, i);
+  }, [messages, autoSpeak, voice]);
+
+  /**
+   * A recording lands in the input box, not in the profile. The user reads it
+   * and presses send — an answer to a security questionnaire is not something
+   * to record on the strength of a transcript nobody checked.
+   */
+  const toggleMic = async () => {
+    if (voice.recording) {
+      const heard = await voice.stopRecording();
+      if (heard) {
+        setText((t) => (t ? `${t} ${heard}` : heard));
+        inputRef.current?.focus();
+      }
+      return;
+    }
+    voice.startRecording();
+  };
 
   const submit = (e) => {
     e.preventDefault();
@@ -24,7 +58,20 @@ export default function ChatPanel({ messages, onSend, pending, target, onClearTa
       <div className="flex items-center gap-2 border-b border-[var(--line)] px-4 py-2">
         <span className="live-dot h-[6px] w-[6px] rounded-full bg-[var(--green)]" />
         <span className="label">secure_channel</span>
-        
+
+        <button
+          type="button"
+          onClick={() => { if (autoSpeak) voice.stop(); setAutoSpeak((v) => !v); }}
+          title={autoSpeak ? 'Stop reading replies aloud' : 'Read replies aloud'}
+          aria-pressed={autoSpeak}
+          className={`mono ml-auto border px-2 py-0.5 text-[9px] font-semibold tracking-widest transition-colors ${
+            autoSpeak
+              ? 'border-[var(--red-deep)] bg-[var(--red-deep)] text-white'
+              : 'border-[var(--line)] text-[var(--dim)] hover:text-[var(--muted)]'
+          }`}
+        >
+          VOICE {autoSpeak ? 'ON' : 'OFF'}
+        </button>
       </div>
 
       <div className="scan flex-1 space-y-4 overflow-y-auto p-4">
@@ -41,6 +88,16 @@ export default function ChatPanel({ messages, onSend, pending, target, onClearTa
                 {m.text}
               </div>
             </div>
+            {m.role === 'assistant' && m.text && (
+              <button
+                type="button"
+                onClick={() => (voice.speakingIndex === i ? voice.stop() : voice.play(m.text, i))}
+                title={voice.speakingIndex === i ? 'Stop' : 'Read this aloud'}
+                className="mono mt-1 text-[9px] tracking-widest text-[var(--dim)] hover:text-[var(--red-deep)]"
+              >
+                {voice.speakingIndex === i ? '■ STOP' : '▶ PLAY'}
+              </button>
+            )}
             {m.evidence?.length > 0 && (
               <div className="mt-2 max-w-[88%] space-y-1.5">
                 <div className="label">
@@ -87,8 +144,31 @@ export default function ChatPanel({ messages, onSend, pending, target, onClearTa
         </div>
       )}
 
+      {voice.error && (
+        // Voice failing is a downgrade, not a broken app — the reply is already
+        // on screen and readable. Say so quietly and stay out of the way.
+        <div className="label border-t border-[var(--line)] px-4 py-1.5 text-[var(--amber)]">
+          voice unavailable · {voice.error}
+        </div>
+      )}
+
       <form onSubmit={submit} className="flex gap-2 border-t border-[var(--line)] p-3">
+        <button
+          type="button"
+          onClick={toggleMic}
+          disabled={voice.busy}
+          title={voice.recording ? 'Stop recording' : 'Answer out loud'}
+          aria-label={voice.recording ? 'Stop recording' : 'Answer out loud'}
+          className={`mono shrink-0 border px-3 py-2 text-[11px] leading-none transition-colors disabled:opacity-30 ${
+            voice.recording
+              ? 'border-[var(--red)] bg-[var(--red-bg)] text-[var(--red)]'
+              : 'border-[var(--line)] text-[var(--dim)] hover:text-[var(--ink)]'
+          }`}
+        >
+          {voice.busy ? '…' : voice.recording ? '■' : '●'}
+        </button>
         <input
+          ref={inputRef}
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder={target ? 'Answer, or ask me anything…' : 'Type to begin…'}
