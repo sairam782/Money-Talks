@@ -2,6 +2,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import ChatPanel from '@/components/ChatPanel';
 import QuestionnairePanel from '@/components/QuestionnairePanel';
+import OverviewPanel from '@/components/OverviewPanel';
 import CoverageBar from '@/components/CoverageBar';
 
 const STORAGE_KEY = 'regodit-profile-v1';
@@ -33,6 +34,7 @@ export default function Home() {
   const [messages, setMessages] = useState([]);
   const [pending, setPending] = useState(false);
   const [targetId, setTargetId] = useState(null);
+  const [view, setView] = useState('overview');
 
   useEffect(() => {
     fetch('/api/profile')
@@ -104,6 +106,7 @@ export default function Home() {
 
   const all = Object.values(profile.answers);
   const s_ = coverage.states;
+  const conflictCount = all.filter((a) => a.conflict).length;
 
   return (
     <main className="flex h-screen flex-col">
@@ -149,8 +152,43 @@ export default function Home() {
         <section className="flex w-[38%] min-w-[330px] flex-col border-r border-[var(--line)] bg-[var(--panel)]">
           <ChatPanel messages={messages} onSend={send} pending={pending} target={target} />
         </section>
-        <section className="min-w-0 flex-1 bg-[#0a0a0e]">
-          <QuestionnairePanel profile={profile} onPick={setTargetId} />
+        <section className="flex min-w-0 flex-1 flex-col bg-[#0a0a0e]">
+          <div className="flex shrink-0 items-center gap-1 border-b border-[var(--line)] bg-[var(--panel)] px-3">
+            {[
+              { id: 'overview',      label: 'OVERVIEW' },
+              { id: 'conflicts',     label: `CONFLICTS (${conflictCount})` },
+              { id: 'questionnaire', label: 'QUESTIONNAIRE' },
+              { id: 'open',          label: `TO CONFIRM (${s_.unknown ?? 0})` },
+            ].map((t) => (
+              <button
+                key={t.id}
+                onClick={() => setView(t.id)}
+                className={`mono border-b-2 px-3 py-2 text-[10px] font-semibold tracking-widest transition-colors ${
+                  view === t.id
+                    ? 'border-[var(--red-deep)] text-[var(--ink)]'
+                    : 'border-transparent text-[var(--dim)] hover:text-[var(--muted)]'
+                }`}
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="min-h-0 flex-1">
+            {view === 'overview' ? (
+              <OverviewPanel
+                profile={profile}
+                onPick={(id) => { setTargetId(id); setView('conflicts'); }}
+                onSeeConflicts={() => setView('conflicts')}
+              />
+            ) : (
+              <QuestionnairePanel
+                profile={profile}
+                onPick={setTargetId}
+                only={view === 'conflicts' ? 'conflict' : view === 'open' ? 'open' : null}
+              />
+            )}
+          </div>
         </section>
       </div>
     </main>

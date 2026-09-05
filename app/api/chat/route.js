@@ -1,7 +1,8 @@
 import { NextResponse, after } from 'next/server';
 import { recordUserAnswer, nextOpenQuestion, coverage } from '@/lib/profile';
 import { converse } from '@/lib/converse';
-import { traceAnswer } from '@/lib/prism';
+import { askCorpus } from '@/lib/ask';
+import { traceAnswer, traceAsk } from '@/lib/prism';
 
 const MODEL = process.env.GROQ_MODEL ?? 'openai/gpt-oss-120b';
 
@@ -22,6 +23,34 @@ export async function POST(req) {
 
   // Work out what they actually said BEFORE writing anything down.
   const turn = await converse({ message, question, profile, history });
+
+  /**
+   * They asked us something instead of answering — and it does not have to be
+   * one of the 66. The questionnaire is the deliverable, not the limit of what
+   * the corpus can be asked. Look it up under the same rule as everything else:
+   * verbatim citation or no answer. Nothing is recorded against the open
+   * question, and the question stays on the table.
+   */
+  if (turn.intent === 'ask') {
+    const found = await askCorpus(message);
+
+    after(() => {
+      traceAsk({ question: message, result: found, runId: profile.runId ?? 'interactive' });
+    });
+
+    return NextResponse.json({
+      reply: found.answer,
+      profile,
+      action: 'ask',
+      recorded: false,
+      intent: 'ask',
+      status: found.status,
+      coverage: coverage(profile),
+      nextQuestionId: targetId,
+      evidence: found.evidence,
+      followUpQuestion: found.followUpQuestion,
+    });
+  }
 
   // Not an answer — reply, record nothing, leave the question where it was.
   if (!turn.isAnswer || !question) {

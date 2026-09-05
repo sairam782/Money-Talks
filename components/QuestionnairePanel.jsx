@@ -110,13 +110,23 @@ function Row({ a, onPick }) {
   );
 }
 
-export default function QuestionnairePanel({ profile, onPick }) {
-  const answers = Object.values(profile.answers);
+export default function QuestionnairePanel({ profile, onPick, only }) {
+  let answers = Object.values(profile.answers);
+  if (only === 'conflict') answers = answers.filter((a) => a.conflict);
+  if (only === 'open') answers = answers.filter((a) => a.status === 'unknown' || a.status === 'partial');
   const topics = [...new Set(answers.map((a) => a.topic))];
+
+  if (!answers.length) {
+    return (
+      <div className="grid h-full place-items-center">
+        <p className="mono text-[11px] tracking-widest text-[var(--muted)]">NOTHING HERE — ALL RESOLVED</p>
+      </div>
+    );
+  }
 
   return (
     <div className="scan h-full overflow-y-auto">
-      {topics.map((topic, ti) => {
+      {topics.map((topic) => {
         const rows = answers.filter((a) => a.topic === topic);
         const conflicts = rows.filter((r) => r.conflict).length;
         return (
