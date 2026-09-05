@@ -1,9 +1,9 @@
 'use client';
 
 const TYPE = {
-  observed: { tag: 'OBSERVED', sub: 'reality',    color: 'var(--green)',  bg: 'rgba(34,197,94,.08)',  bd: 'rgba(34,197,94,.28)' },
-  attested: { tag: 'ATTESTED', sub: 'intent',     color: '#9aa4b2',       bg: 'rgba(154,164,178,.07)', bd: 'rgba(154,164,178,.22)' },
-  asserted: { tag: 'ASSERTED', sub: 'testimony',  color: 'var(--blue)',   bg: 'rgba(59,130,246,.08)', bd: 'rgba(59,130,246,.28)' },
+  observed: { tag: 'OBSERVED', sub: 'reality',    color: 'var(--green)',  bg: 'var(--green-bg)',  bd: 'var(--green-bd)' },
+  attested: { tag: 'ATTESTED', sub: 'intent',     color: 'var(--muted)',       bg: 'var(--grey-bg)', bd: 'var(--grey-bd)' },
+  asserted: { tag: 'ASSERTED', sub: 'testimony',  color: 'var(--blue)',   bg: 'var(--blue-bg)', bd: 'var(--blue-bd)' },
 };
 
 export default function EvidenceChip({ item, dense = false }) {

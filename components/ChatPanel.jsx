@@ -68,7 +68,7 @@ export default function ChatPanel({ messages, onSend, pending, target }) {
       </div>
 
       {target && (
-        <div className="border-t border-[var(--line)] bg-[rgba(234,179,8,.05)] px-4 py-2">
+        <div className="border-t border-[var(--line)] bg-[#fffbeb] px-4 py-2">
           <span className="mono text-[10px] tracking-wider text-[var(--amber)]">
             ON_QUESTION {target.num}
           </span>

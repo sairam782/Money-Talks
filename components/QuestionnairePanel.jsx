@@ -18,11 +18,11 @@ function Row({ a, onPick }) {
   return (
     <div
       className="border-b border-[var(--line-soft)]"
-      style={isConflict ? { background: 'rgba(239,68,68,.045)' } : undefined}
+      style={isConflict ? { background: 'var(--red-tint)' } : undefined}
     >
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-start gap-3 px-4 py-2.5 text-left transition-colors hover:bg-[rgba(255,255,255,.02)]"
+        className="flex w-full items-start gap-3 px-4 py-2.5 text-left transition-colors hover:bg-[var(--panel-2)]"
       >
         <span className="mt-[7px] h-[7px] w-[7px] shrink-0" style={{ background: DOT[a.status] ?? '#333' }} />
         <span className="mono mt-[3px] w-11 shrink-0 text-[10px] tracking-wider text-[var(--dim)]">
@@ -56,7 +56,7 @@ function Row({ a, onPick }) {
       {open && (
         <div className="space-y-2 px-4 pb-4 pl-[72px]">
           {a.conflict && (
-            <div className="border border-[rgba(239,68,68,.4)] bg-[rgba(239,68,68,.05)] p-3">
+            <div className="border border-[var(--red-bd)] bg-[var(--red-bg)] p-3">
               <div className="mb-3 flex flex-wrap items-center gap-2">
                 <span className="mono bg-[var(--red-deep)] px-1.5 py-[2px] text-[9px] font-bold tracking-widest text-white">
                   // CONTRADICTION DETECTED
@@ -78,7 +78,7 @@ function Row({ a, onPick }) {
               {a.conflict.proposedQuestion && (
                 <button
                   onClick={() => onPick(a.questionId)}
-                  className="mono mt-3 w-full border border-[var(--red-deep)] bg-[rgba(220,38,38,.12)] px-3 py-2 text-left text-[11px] leading-snug text-[#ff8a8a] hover:bg-[rgba(220,38,38,.2)]"
+                  className="mono mt-3 w-full border border-[var(--red-deep)] bg-[var(--red-bg)] px-3 py-2 text-left text-[11px] leading-snug text-[var(--red-deep)] hover:bg-[var(--red-bd)]"
                 >
                   <span className="tracking-widest text-[var(--red)]">ASK ▸ </span>
                   {a.conflict.proposedQuestion}
@@ -131,7 +131,7 @@ export default function QuestionnairePanel({ profile, onPick, only }) {
         const conflicts = rows.filter((r) => r.conflict).length;
         return (
           <section key={topic}>
-            <h3 className="sticky top-0 z-10 flex items-center gap-2 border-y border-[var(--line)] bg-[#0b0b10]/95 px-4 py-1.5 backdrop-blur">
+            <h3 className="sticky top-0 z-10 flex items-center gap-2 border-y border-[var(--line)] bg-[var(--panel-2)]/95 px-4 py-1.5 backdrop-blur">
               <span className="mono text-[10px] tracking-[.14em] text-[var(--muted)]">
                 <span className="text-[var(--dim)]">|</span> {topic.toUpperCase()}
               </span>

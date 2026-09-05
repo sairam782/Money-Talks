@@ -90,6 +90,11 @@ because the question is free-form: quotes are validated by the same
 like this usually does. A question is never recorded as your answer to the open question,
 and the interview stays where it was ([lib/ask.js](lib/ask.js)).
 
+It reads provenance too. Ask *"whose disaster recovery plan is this?"* and it answers:
+**Solsphere AI Inc's, not Regodit's** — quoting the line that says so. Every retrieved
+passage set now carries the line on which each document names its owner, so a plan filed
+as your evidence that belongs to another company cannot pass unnoticed.
+
 Crucially, *"your documents don't cover this"* and *"I couldn't check"* are kept as
 separate outcomes. They read identically to a human and mean opposite things, so a rate
 limit or an unreachable model never gets reported as an absence of evidence.
@@ -199,7 +204,7 @@ while a BCP/DR plan is a plan, not a drill record (`attested`).
 ```
 lib/
   corpus.js         documents in memory · quote validation · evidence typing
-  retrieve.js       keyword retrieval over paragraphs, security synonyms
+  retrieve.js       keyword retrieval over paragraphs, synonyms, provenance lines
   assess.js         the 4-way router — the product
   ask.js            free-form questions beyond the 66, same citation rule
   converse.js       the interview turn: intent classification + follow-up drilling

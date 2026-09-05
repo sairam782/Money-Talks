@@ -1,53 +1,64 @@
 @import "tailwindcss";
 
+/* Light, low-noise working palette. Colour still carries meaning — green is
+   reality, grey is intent, red is a contradiction — but at working saturation
+   rather than signage saturation. */
 :root {
-  --bg:        #08080b;
-  --panel:     #0e0e13;
-  --panel-2:   #121219;
-  --line:      #1e1e27;
-  --line-soft: #17171f;
-  --ink:       #e8e8ee;
-  --muted:     #6f6f80;
-  --dim:       #4a4a58;
-  --green:     #22c55e;
-  --blue:      #3b82f6;
-  --violet:    #8b5cf6;
-  --amber:     #eab308;
-  --red:       #ef4444;
-  --red-deep:  #dc2626;
+  --bg:        #f6f6f7;
+  --panel:     #ffffff;
+  --panel-2:   #fafafa;
+  --line:      #e3e3e7;
+  --line-soft: #ededf0;
+  --ink:       #1b1b1f;
+  --muted:     #6b6b76;
+  --dim:       #9a9aa4;
+
+  --green:     #15803d;
+  --blue:      #1d4ed8;
+  --violet:    #6d28d9;
+  --amber:     #b45309;
+  --red:       #be123c;
+  --red-deep:  #9f1239;
+
+  --green-bg:  #f0fdf4;
+  --green-bd:  #bbf7d0;
+  --grey-bg:   #f4f4f5;
+  --grey-bd:   #e4e4e7;
+  --blue-bg:   #eff6ff;
+  --blue-bd:   #bfdbfe;
+  --red-bg:    #fff1f2;
+  --red-bd:    #fecdd3;
+  --red-tint:  #fffafb;
+  --track:     #ededf0;
 }
 
 html, body { height: 100%; background: var(--bg); color: var(--ink); }
 
 body {
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  /* faint engineering grid */
-  background-image:
-    linear-gradient(rgba(255,255,255,.016) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.016) 1px, transparent 1px);
-  background-size: 48px 48px;
+  -webkit-font-smoothing: antialiased;
 }
 
 .mono { font-family: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace; }
 
 .label {
   font-family: var(--font-geist-mono), ui-monospace, Menlo, monospace;
-  font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+  font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
 }
 
 .panel { background: var(--panel); border: 1px solid var(--line); }
 
-.scan::-webkit-scrollbar { width: 8px; height: 8px; }
+.scan::-webkit-scrollbar { width: 10px; height: 10px; }
 .scan::-webkit-scrollbar-track { background: transparent; }
-.scan::-webkit-scrollbar-thumb { background: #23232e; border-radius: 4px; }
-.scan::-webkit-scrollbar-thumb:hover { background: #30303d; }
+.scan::-webkit-scrollbar-thumb { background: #d4d4d8; border-radius: 5px; border: 3px solid transparent; background-clip: content-box; }
+.scan::-webkit-scrollbar-thumb:hover { background: #b4b4bb; background-clip: content-box; }
 
-@keyframes pulseDot { 0%,100% { opacity: 1 } 50% { opacity: .25 } }
-.live-dot { animation: pulseDot 1.8s ease-in-out infinite; }
+@keyframes pulseDot { 0%,100% { opacity: 1 } 50% { opacity: .3 } }
+.live-dot { animation: pulseDot 2s ease-in-out infinite; }
 
 @keyframes sweep { from { transform: translateX(-100%) } to { transform: translateX(300%) } }
 .sweep::after {
   content: ''; position: absolute; inset: 0 auto 0 0; width: 33%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.09), transparent);
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,.05), transparent);
   animation: sweep 3.4s linear infinite;
 }

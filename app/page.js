@@ -140,7 +140,7 @@ export default function Home() {
             </div>
             <a
               href="/questionnaire"
-              className="mono bg-[var(--red-deep)] px-3 py-1.5 text-[10px] font-bold tracking-widest text-white hover:bg-[#b91c1c]"
+              className="mono bg-[var(--red-deep)] px-3 py-1.5 text-[10px] font-bold tracking-widest text-white hover:bg-[var(--red)]"
             >
               GENERATE ▸
             </a>
@@ -163,7 +163,7 @@ export default function Home() {
         <section className="flex w-[38%] min-w-[330px] flex-col border-r border-[var(--line)] bg-[var(--panel)]">
           <ChatPanel messages={messages} onSend={send} pending={pending} target={target} />
         </section>
-        <section className="flex min-w-0 flex-1 flex-col bg-[#0a0a0e]">
+        <section className="flex min-w-0 flex-1 flex-col bg-[var(--bg)]">
           <div className="flex shrink-0 items-center gap-1 border-b border-[var(--line)] bg-[var(--panel)] px-3">
             {[
               { id: 'overview',      label: 'OVERVIEW' },

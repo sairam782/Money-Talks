@@ -14,7 +14,7 @@ export default function CoverageBar({ coverage }) {
 
   return (
     <div className="space-y-2">
-      <div className="relative flex h-[3px] w-full overflow-hidden bg-[#16161d]">
+      <div className="relative flex h-[3px] w-full overflow-hidden bg-[var(--track)]">
         {STATES.map(({ key, color }) =>
           states[key] ? (
             <div key={key} style={{ width: `${(states[key] / total) * 100}%`, background: color }} />

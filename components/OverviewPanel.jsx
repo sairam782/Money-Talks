@@ -64,7 +64,7 @@ export default function OverviewPanel({ profile, onPick, onSeeConflicts }) {
                     {t.settled}/{t.total}
                   </span>
                 </div>
-                <div className="flex h-[5px] bg-[#16161d]">
+                <div className="flex h-[5px] bg-[var(--track)]">
                   <div style={{ width: `${t.verified}%`, background: 'var(--green)' }} />
                   <div style={{ width: `${t.confirmed}%`, background: 'var(--blue)' }} />
                   <div style={{ width: `${t.partial}%`, background: 'var(--violet)' }} />
@@ -80,9 +80,9 @@ export default function OverviewPanel({ profile, onPick, onSeeConflicts }) {
           <div className="label border-b border-[var(--line)] px-4 py-2.5">evidence mix</div>
           <div className="space-y-3.5 p-4">
             {[
-              { k: 'observed', word: 'reality', n: ev.observed, color: 'var(--green)', bg: 'rgba(34,197,94,.08)', bd: 'rgba(34,197,94,.28)' },
-              { k: 'attested', word: 'intent', n: ev.attested, color: '#9aa4b2', bg: 'rgba(154,164,178,.07)', bd: 'rgba(154,164,178,.22)' },
-              { k: 'asserted', word: 'testimony', n: ev.asserted, color: 'var(--blue)', bg: 'rgba(59,130,246,.08)', bd: 'rgba(59,130,246,.28)' },
+              { k: 'observed', word: 'reality', n: ev.observed, color: 'var(--green)', bg: 'var(--green-bg)', bd: 'var(--green-bd)' },
+              { k: 'attested', word: 'intent', n: ev.attested, color: 'var(--muted)', bg: 'var(--grey-bg)', bd: 'var(--grey-bd)' },
+              { k: 'asserted', word: 'testimony', n: ev.asserted, color: 'var(--blue)', bg: 'var(--blue-bg)', bd: 'var(--blue-bd)' },
             ].map((r) => (
               <div key={r.k}>
                 <div className="mb-1.5 flex items-baseline gap-2">
@@ -97,7 +97,7 @@ export default function OverviewPanel({ profile, onPick, onSeeConflicts }) {
                     {r.n}
                   </span>
                 </div>
-                <div className="h-[4px] bg-[#16161d]">
+                <div className="h-[4px] bg-[var(--track)]">
                   <div style={{ width: `${(r.n / evTotal) * 100}%`, height: 4, background: r.color }} />
                 </div>
               </div>
@@ -105,7 +105,7 @@ export default function OverviewPanel({ profile, onPick, onSeeConflicts }) {
             <p className="border-t border-[var(--line)] pt-3 text-[11px] leading-relaxed text-[var(--muted)]">
               {ev.attested > ev.observed ? (
                 <>
-                  More <span className="text-[#9aa4b2]">intent</span> than{' '}
+                  More <span className="text-[var(--muted)]">intent</span> than{' '}
                   <span className="text-[var(--green)]">reality</span>. Policies say what should happen;
                   only {ev.observed} citations show what does.
                 </>
@@ -122,15 +122,15 @@ export default function OverviewPanel({ profile, onPick, onSeeConflicts }) {
 
       {/* contradictions */}
       {conflicts.length > 0 && (
-        <div className="mt-4 border border-[rgba(239,68,68,.4)] bg-[rgba(239,68,68,.05)]">
-          <div className="flex items-center gap-2.5 border-b border-[rgba(239,68,68,.25)] px-4 py-2.5">
+        <div className="mt-4 border border-[var(--red-bd)] bg-[var(--red-bg)]">
+          <div className="flex items-center gap-2.5 border-b border-[var(--red-bd)] px-4 py-2.5">
             <span className="mono bg-[var(--red-deep)] px-1.5 py-[2px] text-[9px] font-bold tracking-widest text-white">
               {conflicts.length} CONTRADICTION{conflicts.length > 1 ? 'S' : ''}
             </span>
             <span className="label">need a human ruling</span>
             <button
               onClick={onSeeConflicts}
-              className="mono ml-auto text-[9px] tracking-widest text-[var(--red)] hover:text-[#ff8a8a]"
+              className="mono ml-auto text-[9px] tracking-widest text-[var(--red)] hover:text-[var(--red-deep)]"
             >
               SEE ALL ▸
             </button>
@@ -139,7 +139,7 @@ export default function OverviewPanel({ profile, onPick, onSeeConflicts }) {
             <button
               key={c.questionId}
               onClick={() => onPick(c.questionId)}
-              className="flex w-full items-center gap-3 border-b border-[rgba(239,68,68,.14)] px-4 py-2.5 text-left hover:bg-[rgba(239,68,68,.06)]"
+              className="flex w-full items-center gap-3 border-b border-[var(--red-bd)] px-4 py-2.5 text-left hover:bg-[var(--red-bg)]"
             >
               <span className="mono w-11 shrink-0 text-[10px] text-[var(--dim)]">Q{c.num}</span>
               <span className="min-w-0 flex-1 truncate text-[12.5px] text-[var(--ink)]">{c.questionText}</span>
